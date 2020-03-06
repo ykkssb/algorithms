@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <substitutionProperty name="LOG_HOME" value="/data/server/eureka/logs" />
+    <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="UTF-8">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <!--  <pattern>>%d{yyyyMMdd HH:mm:ss} [%thread] %-5level %logger{0} - %msg%n</pattern> -->
+            <pattern>[%thread] [traceId:%X{X-B3-TraceId:-}] [spanId:%X{X-B3-SpanId:-}] %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="InfoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/mall-content.log</File>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[%thread] [traceId:%X{X-B3-TraceId:-}] [spanId:%X{X-B3-SpanId:-}] %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{0}[%L] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/backup/mall-content.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Debug Level -->
+    <appender name="DebugAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/mall-content_debug.log</File>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[%thread] [traceId:%X{X-B3-TraceId:-}] [spanId:%X{X-B3-SpanId:-}] %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{0}[%L] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/backup/mall-content_debug.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Error Level -->
+    <appender name="ErrorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/mall-content_error.log</File>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[%thread] [traceId:%X{X-B3-TraceId:-}] [spanId:%X{X-B3-SpanId:-}] %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{0}[%L] - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/backup/mall-content_error.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+
+    <logger name="java.sql" level="DEBUG">
+        <appender-ref ref="DebugAppender"/>
+    </logger>
+
+    <logger name="mapper" level="DEBUG">
+        <appender-ref ref="DebugAppender"/>
+    </logger>
+
+    <logger name="org.apache.rocketmq" level="WARN"/>
+
+    <root level="info">
+        <appender-ref ref="ConsoleAppender"/>
+        <appender-ref ref="InfoAppender"/>
+        <appender-ref ref="ErrorAppender"/>
+    </root>
+</configuration>
