@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class AddTwoNumber {
 
     /**
-     * 时间复杂度：O(max(m, n))，假设 mm 和 nn 分别表示 l1 和 l2 的长度，上面的算法最多重复 max(m, n) 次。
+     * 时间复杂度：O(max(m, n))，假设 m 和 n 分别表示 l1 和 l2 的长度，上面的算法最多重复 max(m, n) 次。
      * <p>
      * 空间复杂度：O(max(m,n))， 新列表的长度最多为max(m,n) + 1
      *
@@ -26,27 +26,24 @@ public class AddTwoNumber {
         ListNode dummyHead = new ListNode(0);
         ListNode p = l1, q = l2, curr = dummyHead;
         int carry = 0;
-        while (p != null && q != null) {
-            int x = p.val != 0 ? p.val : 0;
-            int y = q.val != 0 ? q.val : 0;
-            int sum = carry + x + y;
+        while (p != null || q != null) {
+            int a = p != null ? p.val : 0;
+            int b = q != null ? q.val : 0;
+            int sum = carry + a + b;
             carry = sum / 10;
             curr.next = new ListNode(sum % 10);
-            curr = curr.next;
-            if (p.next != null) {
+            if (p != null && p.next != null) {
                 p = p.next;
-            } else{
+            } else {
                 p = null;
-
             }
-            if (q.next != null) {
+            if (q != null && q.next != null) {
                 q = q.next;
-            }else{
+            } else {
                 q = null;
             }
+            curr = curr.next;
         }
-
-        System.out.println("test2");
         if (carry > 0) {
             curr.next = new ListNode(carry);
         }
@@ -70,14 +67,14 @@ public class AddTwoNumber {
 
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
-        l1 = ne(l1, new ListNode(5));
-        ne(l1.next, new ListNode(9));
-        ne(l1.next.next, new ListNode(1));
+        l1 = ne(l1, new ListNode(9));
+//        ne(l1.next, new ListNode(9));
+//        ne(l1.next.next, new ListNode(1));
 
-        ListNode l2 = new ListNode(1);
-        ne(l2, new ListNode(1));
-        ne(l2.next, new ListNode(2));
-        ne(l2.next.next, new ListNode(9));
+        ListNode l2 = new ListNode(0);
+//        ne(l2, new ListNode(1));
+//        ne(l2.next, new ListNode(2));
+//        ne(l2.next.next, new ListNode(9));
 
         ListNode test = addTwoNumber(l1, l2);
         System.out.println(test);
