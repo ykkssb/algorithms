@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * <p>串联所有单词的子串</p>
+ * https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/
  *
  * @Author : Eric
  * @Date: 2020-03-28 15:12
