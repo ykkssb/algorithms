@@ -46,7 +46,7 @@ public class Permute {
 
     public static void main(String[] args) {
         Permute p = new Permute();
-        int[] n = {1, 3, 2};
+        int[] n = {1, 3, 1};
         System.out.println(p.permute(n));
     }
 }
