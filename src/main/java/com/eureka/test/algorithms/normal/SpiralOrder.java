@@ -30,6 +30,7 @@ public class SpiralOrder {
             for (int j = i + 1; j < row - i; j++) {
                 res.add(matrix[j][col - 1 - i]);
             }
+            //row - 1 - i 是指随着层数增加时，层数的边界所在行（即最上行和最下行的所处的行数），如果出现最上行和最下行是同一行的情况
             for (int j = col - 2 - i; j >= i && (row - 1 - i != i); j--) {
                 res.add(matrix[row - 1 - i][j]);
             }
