@@ -39,7 +39,7 @@ public class MergeIndex {
                 st.push(cur);
             }
         }
-        return st.toArray(new int[sft.size()][]);
+        return st.toArray(new int[st.size()][]);
     }
 
     public static void main(String[] args) {
