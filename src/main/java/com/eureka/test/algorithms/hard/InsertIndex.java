@@ -13,6 +13,13 @@ import java.util.*;
  */
 public class InsertIndex {
 
+    /**
+     * 贪心法
+     *
+     * @param intervals
+     * @param newInterval
+     * @return
+     */
     public int[][] insert(int[][] intervals, int[] newInterval) {
 
         if (intervals == null || newInterval == null) {
