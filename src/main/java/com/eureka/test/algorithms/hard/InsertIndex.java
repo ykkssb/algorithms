@@ -56,6 +56,7 @@ public class InsertIndex {
         int[] m = {2, 4};
 
         int[][] tmp = i.insert(n, m);
+        // 二维数组sout
         for (int[] a : tmp) {
             System.out.println(Arrays.toString(a));
         }
