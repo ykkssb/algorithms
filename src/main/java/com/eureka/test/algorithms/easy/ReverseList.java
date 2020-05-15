@@ -21,7 +21,7 @@ public class ReverseList {
 
     }
 
-    // 1 - 4 - 2
+    // 1 - 4 - 2 -null
     public static ListNode reverseList(ListNode head) {
         ListNode pre = null;
         ListNode cur = null;
@@ -29,8 +29,8 @@ public class ReverseList {
             cur = head.next;
             head.next = pre;
             pre = head;
-            head = cur;
 
+            head = cur;
         }
         return pre;
     }
