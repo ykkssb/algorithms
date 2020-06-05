@@ -1,6 +1,7 @@
 package com.eureka.test.algorithms.normal;
 
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 /**
  * <p>颜色分类 </p>
@@ -39,12 +40,19 @@ public class SortColors {
         }
     }
 
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         SortColors s = new SortColors();
         int[] nums = {2, 0, 1, 2, 1};
 //        int[] nums = {2, 0, 1};
 
         s.sortColors(nums);
         System.out.println(Arrays.toString(nums));
+    }*/
+
+    public static void main(String[] args) {
+//        String s = "f5cbb20814283b9120da89c7a3cc16356a7ff13a8b3acd211df77b403539527b";
+//        System.out.println(s.length());
+        Predicate<Integer> predicate = number -> number == 10;
+        System.out.println(predicate.test(10));
     }
 }
