@@ -1,5 +1,6 @@
 package com.eureka.test.algorithms.normal;
 
+import com.eureka.test.algorithms.container.ListNode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -48,21 +49,6 @@ public class AddTwoNumber {
             curr.next = new ListNode(carry);
         }
         return dummyHead.next;
-    }
-
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class ListNode {
-
-        int val;
-
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-
     }
 
     public static void main(String[] args) {

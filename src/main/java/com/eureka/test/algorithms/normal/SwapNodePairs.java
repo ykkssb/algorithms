@@ -1,5 +1,7 @@
 package com.eureka.test.algorithms.normal;
 
+import com.eureka.test.algorithms.container.ListNode;
+
 /**
  * <p>两两交换节点</p>
  *
@@ -7,16 +9,6 @@ package com.eureka.test.algorithms.normal;
  * @Date: 2020-03-22 16:02
  */
 public class SwapNodePairs {
-
-    static class ListNode {
-        int val;
-
-        ListNode next;
-
-        public ListNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * 非递归解法

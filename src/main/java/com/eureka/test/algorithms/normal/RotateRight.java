@@ -1,5 +1,7 @@
 package com.eureka.test.algorithms.normal;
 
+import com.eureka.test.algorithms.container.ListNode;
+
 /**
  * <p>旋转链表</p>
  * https://leetcode-cn.com/problems/rotate-list/solution/61java-0msda-bai-bai-fen-bai-xiang-xi-tu-jie-by-us/
@@ -9,14 +11,6 @@ package com.eureka.test.algorithms.normal;
  */
 public class RotateRight {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
 
     public ListNode rotateRight(ListNode head, int k) {

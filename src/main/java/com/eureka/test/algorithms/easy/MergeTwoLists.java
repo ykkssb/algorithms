@@ -1,5 +1,6 @@
 package com.eureka.test.algorithms.easy;
 
+import com.eureka.test.algorithms.container.ListNode;
 import com.eureka.test.algorithms.normal.AddTwoNumber;
 
 /**
@@ -10,16 +11,6 @@ import com.eureka.test.algorithms.normal.AddTwoNumber;
  * @Date: 2020-03-20 19:50
  */
 public class MergeTwoLists {
-
-    public static class ListNode {
-        int val;
-
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode preHead = new ListNode(-1);

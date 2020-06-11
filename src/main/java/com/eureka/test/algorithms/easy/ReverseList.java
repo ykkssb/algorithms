@@ -1,5 +1,7 @@
 package com.eureka.test.algorithms.easy;
 
+import com.eureka.test.algorithms.container.ListNode;
+
 /**
  * <p>链表反转</p>
  * https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/
@@ -8,18 +10,6 @@ package com.eureka.test.algorithms.easy;
  * @Date: 2020-03-23 20:00
  */
 public class ReverseList {
-
-    public static class ListNode {
-
-        int val;
-
-        ListNode next;
-
-        public ListNode(int x) {
-            val = x;
-        }
-
-    }
 
     // 1 - 4 - 2 -null
     public static ListNode reverseList(ListNode head) {

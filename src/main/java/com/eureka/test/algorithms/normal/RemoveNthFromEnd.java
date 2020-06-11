@@ -1,5 +1,7 @@
 package com.eureka.test.algorithms.normal;
 
+import com.eureka.test.algorithms.container.ListNode;
+
 /**
  * <p>删除链表第N个节点</p>
  * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
@@ -9,14 +11,6 @@ package com.eureka.test.algorithms.normal;
  */
 public class RemoveNthFromEnd {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * 方法二：一次遍历算法
