@@ -1,5 +1,7 @@
 package com.eureka.test.algorithms.hard;
 
+import com.eureka.test.algorithms.container.ListNode;
+
 /**
  * <p>K个一组反转链表</p>
  * https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
@@ -9,14 +11,6 @@ package com.eureka.test.algorithms.hard;
  */
 public class ReverseKGroup {
 
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        public ListNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * 1-4 - 3-5 - 7-9

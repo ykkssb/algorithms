@@ -1,5 +1,7 @@
 package com.eureka.test.algorithms.hard;
 
+import com.eureka.test.algorithms.container.ListNode;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -12,14 +14,6 @@ import java.util.PriorityQueue;
  */
 public class MergeNodeList {
 
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * 分而治之
