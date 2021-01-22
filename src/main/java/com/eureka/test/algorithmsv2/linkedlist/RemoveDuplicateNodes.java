@@ -14,25 +14,27 @@ import java.util.Set;
  * @Date: 2021-01-20 23:47
  */
 public class RemoveDuplicateNodes {
-    //todo
+    //todo set
     public ListNode removeDuplicateNodes(ListNode head) {
-        if (head==null){
+        if (head == null) {
             return head;
         }
 
-        ListNode p = head;
+        ListNode cur = head;
         Set<Integer> set = new HashSet<>();
         set.add(head.val);
-        // 无next contains npe
-        while (p.next != null) {
-            ListNode cur = p.next;
-            if(!set.contains(cur.val)){
-                set.add(cur.val);
-                p = p.next;
-            }else {
-                p.next = cur.next;
+        // 1-2-3-3-2-1
+        while (cur.next != null) {
+            ListNode tmp = cur.next;
+            if (set.contains(tmp.val)) {
+                cur.next = tmp.next;
+            } else {
+                set.add(tmp.val);
+                cur.next = tmp;
+                cur = cur.next;
             }
         }
+
         return head;
     }
 

@@ -21,18 +21,18 @@ public class CopyRandomList {
      * @return
      */
     public Node copyRandomList(Node head) {
-        if (head == null) {
+        if(head==null){
             return head;
         }
-        Node cur = head;
         Map<Node, Node> map = new HashMap<>();
-        while (cur != null) {
+        Node cur = head;
+        while (cur!=null) {
             map.put(cur, new Node(cur.val));
             cur = cur.next;
         }
-        cur = head;
 
-        while (cur != null) {
+        cur= head;
+        while (cur!=null){
             map.get(cur).next = map.get(cur.next);
             map.get(cur).random = map.get(cur.random);
             cur = cur.next;

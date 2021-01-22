@@ -70,7 +70,6 @@ public class StrStr {
 
     /**
      * 方法三： Rabin Karp - 常数复杂度
-     * todo
      *
      * @param haystack
      * @param needle

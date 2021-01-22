@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class SwapPairs {
     /**
-     * TODO 递归法
+     * todo 递归法
      *
      * @param head
      * @return
@@ -22,15 +22,16 @@ public class SwapPairs {
         if (head == null || head.next == null) {
             return head;
         }
-
         ListNode node = head.next;
         head.next = swapPairs(node.next);
         node.next = head;
         return node;
+
     }
 
     /**
      * 非递归法
+     * 0-1-2-3-4
      *
      * @param head
      * @return
@@ -38,15 +39,18 @@ public class SwapPairs {
     public ListNode swapPairsTwo(ListNode head) {
         ListNode dum = new ListNode(0, head);
         ListNode cur = dum;
-        // 2-1-3-4
         while (cur.next != null && cur.next.next != null) {
-            ListNode node1 = cur.next;
-            ListNode node2 = cur.next.next;
-            cur.next = node2;
-            node1.next = node2.next;
-            node2.next = node1;
-            cur = node1;
+            ListNode n1 = cur.next;
+            ListNode n2 = cur.next.next;
+            n1.next = n2.next;
+
+
+            cur.next = n2;
+            n2.next = n1;
+            cur = n1;
+
         }
+
         return dum.next;
     }
 

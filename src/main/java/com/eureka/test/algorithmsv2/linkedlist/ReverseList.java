@@ -8,7 +8,8 @@ import java.util.List;
 /**
  * <p>剑指 Offer 24. 反转链表</p>
  * https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/
- *https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+ * https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+ *
  * @Author : Eric
  * @Date: 2021-01-20 16:38
  */
@@ -25,6 +26,9 @@ public class ReverseList {
         return cur;
 
     }
+
+
+
 
     public int[] reversePrint(ListNode head) {
         List<Integer> list = new ArrayList<>();
