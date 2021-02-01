@@ -15,19 +15,15 @@ import java.util.List;
  */
 public class ReverseList {
     public ListNode reverseList(ListNode head) {
-        ListNode cur = null, pre = head;
+        ListNode pre = head, cur = null;
         while (pre != null) {
-            ListNode tmp = pre.next;
+            ListNode t = pre.next;
             pre.next = cur;
             cur = pre;
-            pre = tmp;
+            pre = t;
         }
-        System.out.println("");
         return cur;
-
     }
-
-
 
 
     public int[] reversePrint(ListNode head) {
@@ -58,6 +54,6 @@ public class ReverseList {
 
         // 1-2-3-4-5
         ReverseList r = new ReverseList();
-        System.out.println(r.reversePrint(l));
+        System.out.println(r.reverseList(l));
     }
 }

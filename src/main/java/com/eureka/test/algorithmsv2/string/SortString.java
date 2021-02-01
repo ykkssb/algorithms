@@ -1,5 +1,8 @@
 package com.eureka.test.algorithmsv2.string;
 
+import com.eureka.test.algorithms.easy.StrStr;
+import org.yaml.snakeyaml.events.StreamStartEvent;
+
 /**
  * <p>1370. 上升下降字符串</p>
  * https://leetcode-cn.com/problems/increasing-decreasing-string/
@@ -47,11 +50,12 @@ public class SortString {
         SortString ss = new SortString();
         String str= "HELLO";
         char[] ch = str.toCharArray();
-        StringBuffer sb = new StringBuffer();
-        for(int i = 0; i<ch.length; i++){
-            sb.append((char)(ch[i] +32));
-        }
-        System.out.println(sb.toString());
+//        StringBuffer sb = new StringBuffer();
+//        for(int i = 0; i<ch.length; i++){
+//            sb.append((char)(ch[i] +32));
+//        }
+        System.out.println(String.valueOf(ch));
+//        System.out.println(sb.toString());
 //        System.out.println(ss.sortString("rta"));
     }
 }

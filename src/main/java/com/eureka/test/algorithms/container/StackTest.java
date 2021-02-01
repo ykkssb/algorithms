@@ -25,7 +25,7 @@ public class StackTest {
 //
 //        System.out.println(stack);
 //        System.out.println(stack.size());
-        for (int i = 0; i <= stack.size(); i++) {
+        for (int i = 0; i <= 2; i++) {
             System.out.println(stack.pop());
         }
 

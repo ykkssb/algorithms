@@ -45,9 +45,10 @@ public class FindSubstring {
 
 
     public static void main(String[] args) {
-        String s = "abcedfaweabcedf";
-        String[] words = {"abc", "edf"};
-        System.out.println(findSubstring(s, words));
+//        String s = "abcedfaweabcedf";
+//        String[] words = {"abc", "edf"};
+//        System.out.println(findSubstring(s, words));
+
 
     }
 }

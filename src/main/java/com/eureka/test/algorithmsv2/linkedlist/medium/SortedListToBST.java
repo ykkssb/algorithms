@@ -23,40 +23,38 @@ public class SortedListToBST {
      * @return
      */
     public TreeNode sortedListToBST(ListNode head) {
-        TreeNode treeNode = build(head, null);
-        return treeNode;
+        return build(head, null);
     }
 
     public TreeNode build(ListNode l, ListNode r) {
         if (l == r) {
             return null;
         }
-
         ListNode mid = half(l, r);
-        TreeNode no = new TreeNode(mid.val);
-        no.left = build(l, mid);
-        no.right = build(mid.next, r);
-        return no;
+        TreeNode t = new TreeNode(mid.val);
+        t.left = build(l, mid);
+        t.right = build(mid.next, r);
+        return t;
     }
 
     public ListNode half(ListNode l, ListNode r) {
-        ListNode s = l, f = l;
-        while (f != r && f.next != r) {
-            s = s.next;
-            f = f.next.next;
+
+        ListNode slow = l, fast = l;
+        while (fast != r && fast.next != r) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return s;
+        return slow;
     }
 
     ListNode global;
 
     public TreeNode sortedListToBSTwo(ListNode head) {
         global = head;
-        ListNode cur = head;
         int n = 0;
-        while (cur != null) {
+        while (head != null) {
             n++;
-            cur = cur.next;
+            head = head.next;
         }
         return buildT(0, n - 1);
     }
@@ -65,13 +63,13 @@ public class SortedListToBST {
         if (l > r) {
             return null;
         }
-        int mid = (l + r + 1) / 2;
-        TreeNode node = new TreeNode();
-        node.left = buildT(l, mid - 1);
-        node.val = global.val;
+        int mid = (l + r +1) / 2;
+        TreeNode t = new TreeNode(0);
+        t.left = buildT(l, mid-1);
+        t.val = global.val;
         global = global.next;
-        node.right = buildT(mid + 1, r);
-        return node;
+        t.right = buildT(mid + 1, r);
+        return t;
     }
 
     /**
