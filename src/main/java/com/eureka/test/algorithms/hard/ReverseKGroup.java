@@ -1,6 +1,6 @@
 package com.eureka.test.algorithms.hard;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>K个一组反转链表</p>

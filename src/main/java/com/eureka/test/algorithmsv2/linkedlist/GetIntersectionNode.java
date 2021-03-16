@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>面试题 02.07. 链表相交</p>

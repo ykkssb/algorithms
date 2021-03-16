@@ -1,6 +1,6 @@
 package com.eureka.test.algorithms.easy;
 
-import com.eureka.test.algorithms.container.TreeNode;
+import com.eureka.test.container.TreeNode;
 
 /**
  * <p>是否相同的树</p>

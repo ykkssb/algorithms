@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist.medium;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>147. 对链表进行插入排序</p>
@@ -20,21 +20,21 @@ public class InsertionSortList {
      */
     public ListNode insertionSortList(ListNode head) {
 
-        // n-4 2 1 3
+        // 0-113423
         ListNode dum = new ListNode(0, head);
         ListNode pre = dum.next, cur = head.next;
         while (cur != null) {
             if (pre.val <= cur.val) {
                 pre = pre.next;
             } else {
-                ListNode p = dum;
-                // im
-                while (p.next.val <= cur.val) {
-                    p = p.next;
+                ListNode t = dum;
+                while (t.next.val < cur.val) {
+                    t = t.next;
                 }
+                ListNode next = t.next;
                 pre.next = cur.next;
-                cur.next = p.next;
-                p.next = cur;
+                t.next = cur;
+                cur.next = next;
             }
             cur = pre.next;
         }

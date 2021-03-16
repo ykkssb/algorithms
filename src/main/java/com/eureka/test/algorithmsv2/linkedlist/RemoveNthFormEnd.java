@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>19. 删除链表的倒数第 N 个结点</p>

@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>面试题 02.03. 删除中间节点</p>

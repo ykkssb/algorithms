@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist.medium;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>1669. 合并两个链表</p>

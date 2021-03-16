@@ -1,6 +1,6 @@
 package com.eureka.test.algorithms.normal;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>旋转链表</p>

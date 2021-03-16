@@ -1,7 +1,5 @@
 package com.eureka.test.algorithms.normal;
 
-import com.eureka.test.algorithms.container.ListNode;
-
 /**
  * <p>两两交换节点</p>
  *

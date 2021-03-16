@@ -1,11 +1,7 @@
 package com.eureka.test.algorithmsv2.linkedlist.medium;
 
-import com.eureka.test.algorithms.container.ListNode;
-import com.eureka.test.algorithms.container.TreeNode;
-import org.w3c.dom.Node;
-
-import java.util.List;
-import java.util.TreeMap;
+import com.eureka.test.container.ListNode;
+import com.eureka.test.container.TreeNode;
 
 /**
  * <p>109. 有序链表转换二叉搜索树</p>
@@ -26,19 +22,19 @@ public class SortedListToBST {
         return build(head, null);
     }
 
+    // -10 -3 0 5 9
     public TreeNode build(ListNode l, ListNode r) {
         if (l == r) {
             return null;
         }
         ListNode mid = half(l, r);
-        TreeNode t = new TreeNode(mid.val);
-        t.left = build(l, mid);
-        t.right = build(mid.next, r);
-        return t;
+        TreeNode node = new TreeNode(mid.val);
+        node.left = build(l, mid);
+        node.right = build(mid.next, r);
+        return node;
     }
 
     public ListNode half(ListNode l, ListNode r) {
-
         ListNode slow = l, fast = l;
         while (fast != r && fast.next != r) {
             slow = slow.next;
@@ -63,9 +59,9 @@ public class SortedListToBST {
         if (l > r) {
             return null;
         }
-        int mid = (l + r +1) / 2;
+        int mid = (l + r + 1) / 2;
         TreeNode t = new TreeNode(0);
-        t.left = buildT(l, mid-1);
+        t.left = buildT(l, mid - 1);
         t.val = global.val;
         global = global.next;
         t.right = buildT(mid + 1, r);
@@ -89,6 +85,6 @@ public class SortedListToBST {
         l.next.next.next = new ListNode(5);
         l.next.next.next.next = new ListNode(9);
 
-        System.out.println(sl.sortedListToBSTwo(l));
+        System.out.println(sl.sortedListToBST(l));
     }
 }

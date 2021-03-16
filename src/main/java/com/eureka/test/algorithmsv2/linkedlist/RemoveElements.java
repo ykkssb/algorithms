@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>203. 移除链表元素</p>

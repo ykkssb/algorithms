@@ -1,4 +1,4 @@
-package com.eureka.test.algorithms.container;
+package com.eureka.test.container;
 
 import java.util.Stack;
 

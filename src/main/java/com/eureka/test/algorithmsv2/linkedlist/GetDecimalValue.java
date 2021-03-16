@@ -1,9 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist;
 
-import com.eureka.test.algorithms.container.ListNode;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>1290. 二进制链表转整数</p>

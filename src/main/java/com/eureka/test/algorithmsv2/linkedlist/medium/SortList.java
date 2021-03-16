@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist.medium;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>148. 排序链表</p>
@@ -18,7 +18,7 @@ public class SortList {
      * 题目的进阶问题要求达到 O(nlogn) 的时间复杂度和 O(1) 的空间复杂度，
      * 时间复杂度是O(nlogn) 的排序算法包括归并排序、堆排序和快速排序（快速排序的最差时间复杂度是 O(n^2)其中最适合链表的排序算法是归并排序。
      * 所以不推荐插入排序
-     * 1-2-3-4-5
+     * 4-3-2-1
      *
      * @param head
      * @return
@@ -27,13 +27,13 @@ public class SortList {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode slow = head, fast = head.next;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
+        ListNode s = head, f = head.next;
+        while (f != null && f.next != null) {
+            s = s.next;
+            f = f.next.next;
         }
-        ListNode next = slow.next;
-        slow.next = null;
+        ListNode next = s.next;
+        s.next = null;
         ListNode l = sortList(head);
         ListNode r = sortList(next);
         return merge(l, r);
@@ -54,11 +54,11 @@ public class SortList {
             ListNode pre = dum;
             ListNode cur = dum.next;
             while (cur != null) {
-                ListNode l1 = cur;
-                ListNode l2 = split(cur, i);
-                cur = split(l2, i);
-                ListNode mg = merge(l1, l2);
-                pre.next = mg;
+                ListNode l = cur;
+                ListNode r = split(cur, i);
+                cur = split(r, i);
+                ListNode tmp = merge(l, r);
+                pre.next = tmp;
                 while (pre.next != null) {
                     pre = pre.next;
                 }
@@ -126,7 +126,7 @@ public class SortList {
         ListNode r = new ListNode(1);
         r.next = new ListNode(2);
         SortList ii = new SortList();
-        System.out.println(ii.sortListTwo(l));
+        System.out.println(ii.sortList(l));
 //        for (int i = 0; i < 10; i++) {
 //            System.out.println(i);
 //        }

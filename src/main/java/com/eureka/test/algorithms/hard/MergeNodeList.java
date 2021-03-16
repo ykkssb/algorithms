@@ -1,6 +1,6 @@
 package com.eureka.test.algorithms.hard;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

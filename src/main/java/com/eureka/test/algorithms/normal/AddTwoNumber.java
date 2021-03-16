@@ -1,9 +1,6 @@
 package com.eureka.test.algorithms.normal;
 
-import com.eureka.test.algorithms.container.ListNode;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.eureka.test.container.ListNode;
 
 /**
  * @ClassName : AddTwoNumber

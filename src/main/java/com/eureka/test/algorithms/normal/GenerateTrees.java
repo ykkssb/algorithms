@@ -1,6 +1,6 @@
 package com.eureka.test.algorithms.normal;
 
-import com.eureka.test.algorithms.container.TreeNode;
+import com.eureka.test.container.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,7 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist;
 
-import com.eureka.test.algorithms.container.ListNode;
-import com.eureka.test.algorithmsv2.twopointer.RemoveDuplicates;
+import com.eureka.test.container.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

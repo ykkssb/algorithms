@@ -1,8 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist.medium;
 
-import com.eureka.test.algorithms.container.ListNode;
-
-import java.util.List;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>24. 两两交换链表中的节点</p>
@@ -19,14 +17,15 @@ public class SwapPairs {
      * @return
      */
     public ListNode swapPairs(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
+        if (head == null || head.next==null) {
+            return null;
         }
-        ListNode node = head.next;
-        head.next = swapPairs(node.next);
-        node.next = head;
-        return node;
+        // 1-2-3-4
 
+        ListNode next = head.next;
+        head.next = swapPairs(next.next);
+        next.next = head;
+        return next;
     }
 
     /**
@@ -39,15 +38,15 @@ public class SwapPairs {
     public ListNode swapPairsTwo(ListNode head) {
         ListNode dum = new ListNode(0, head);
         ListNode cur = dum;
+        //0-1 -2-3 -4
         while (cur.next != null && cur.next.next != null) {
-            ListNode n1 = cur.next;
-            ListNode n2 = cur.next.next;
-            n1.next = n2.next;
+            ListNode l = cur.next;
+            ListNode r = cur.next.next;
+            cur.next = r;
+            l.next = r.next;
+            r.next = l;
 
-
-            cur.next = n2;
-            n2.next = n1;
-            cur = n1;
+            cur = l;
 
         }
 

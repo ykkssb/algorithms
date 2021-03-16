@@ -1,6 +1,6 @@
 package com.eureka.test.algorithms.easy;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>链表反转</p>

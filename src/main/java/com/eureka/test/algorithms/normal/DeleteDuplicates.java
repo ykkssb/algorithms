@@ -1,7 +1,7 @@
 package com.eureka.test.algorithms.normal;
 
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>删除排序链表中的重复元素 II</p>

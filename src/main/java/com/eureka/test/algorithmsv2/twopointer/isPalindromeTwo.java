@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.twopointer;
 
-import com.eureka.test.algorithms.container.ListNode;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>234. 回文链表</p>

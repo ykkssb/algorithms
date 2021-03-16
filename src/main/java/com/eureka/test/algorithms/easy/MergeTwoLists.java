@@ -1,7 +1,6 @@
 package com.eureka.test.algorithms.easy;
 
-import com.eureka.test.algorithms.container.ListNode;
-import com.eureka.test.algorithms.normal.AddTwoNumber;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>合并两个有序链表</p>

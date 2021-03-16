@@ -1,9 +1,5 @@
 package com.eureka.test.algorithms.normal;
 
-import com.eureka.test.algorithms.container.TreeNode;
-
-import java.util.LinkedList;
-
 /**
  * <p>96. 不同的二叉搜索树</p>
  * https://leetcode-cn.com/problems/unique-binary-search-trees/solution/shua-ti-chao-da-an-mian-shi-huan-shi-zuo-bu-chu-la/

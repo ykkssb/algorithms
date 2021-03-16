@@ -1,6 +1,6 @@
 package com.eureka.test.algorithmsv2.linkedlist.medium;
 
-import com.eureka.test.algorithms.container.Node;
+import com.eureka.test.container.Node;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,21 +21,20 @@ public class CopyRandomList {
      * @return
      */
     public Node copyRandomList(Node head) {
-        if(head==null){
+        if (head == null) {
             return head;
         }
         Map<Node, Node> map = new HashMap<>();
-        Node cur = head;
-        while (cur!=null) {
-            map.put(cur, new Node(cur.val));
-            cur = cur.next;
+        Node s = head;
+        while (s != null) {
+            map.put(s, new Node(s.val));
+            s = s.next;
         }
-
-        cur= head;
-        while (cur!=null){
-            map.get(cur).next = map.get(cur.next);
-            map.get(cur).random = map.get(cur.random);
-            cur = cur.next;
+        s = head;
+        while (s != null) {
+            map.get(s).next =map.get(s.next);
+            map.get(s).random = map.get(s.random);
+            s= s.next;
         }
         return map.get(head);
     }

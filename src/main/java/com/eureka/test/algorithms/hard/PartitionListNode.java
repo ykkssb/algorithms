@@ -1,9 +1,6 @@
 package com.eureka.test.algorithms.hard;
 
-import com.eureka.test.algorithms.container.ListNode;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.eureka.test.container.ListNode;
 
 /**
  * <p>分隔链表</p>
