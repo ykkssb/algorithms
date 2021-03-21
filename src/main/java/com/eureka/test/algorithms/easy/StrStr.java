@@ -2,7 +2,9 @@ package com.eureka.test.algorithms.easy;
 
 /**
  * <p>实现strStr（）</p>
- * https://leetcode-cn.com/problems/implement-strstr/
+ * https://leetcode-cn.com/problems/implement-strstr/solution/zhe-ke-neng-shi-quan-wang-zui-xi-de-kmp-8zl57/
+ * https://www.bilibili.com/video/av3246487?from=search&seid=2688728712457575436
+ * https://www.bilibili.com/video/BV1iJ411u74L/?spm_id_from=333.788.recommend_more_video.0
  *
  * @Author : Eric
  * @Date: 2020-03-26 19:15
@@ -13,104 +15,115 @@ public class StrStr {
      * 方法一：子串逐一比较 - 线性时间复杂度
      * 时间复杂度：O((N - L)L)
      * 空间复杂度：O(1)
+     * strStr
      *
      * @param haystack
      * @param needle
      * @return
      */
-    public static int strStr(String haystack, String needle) {
-        int L = haystack.length(), N = needle.length();
-        if (needle == null || needle == "") {
-            return 0;
-        } else if (N > L) {
+    public int strStr(String haystack, String needle) {
+        int L = haystack.length(), R = needle.length();
+        if (R > L) {
             return -1;
-        }
-
-        int s = -1;
-        for (int i = 0; i < L - N + 1; ++i) {
-            if (haystack.substring(i, i + N).equals(needle)) {
-                return s = i;
-            }
-        }
-
-        return s;
-    }
-
-    public static int strStrTwo(String haystack, String needle) {
-        int L = haystack.length(), N = needle.length();
-        if (N > L) {
-            return -1;
-        } else if (L == 0 || N == 0) {
+        } else if (L == 0 || R == 0) {
             return 0;
         }
-
-        int p = 0;
-        while (p < L - N + 1) {
-
-            while (p < L - N + 1 && needle.charAt(0) != haystack.charAt(p)) {
-                p++;
+        // aaaab
+        // ab
+        int l = 0, r = 0;
+        while (l < L && r < R) {
+            if (haystack.charAt(l) == needle.charAt(r)) {
+                r++;
+            } else if (r > 0) {
+                l -= r;
+                r = 0;
             }
-
-            int pn = 0;
-            int cur = 0;
-            while (pn < N && p < L && needle.charAt(pn) == haystack.charAt(p)) {
-                p++;
-                pn++;
-                cur++;
-            }
-
-            if (cur == N) {
-                return p - cur;
-
-            }
-            p = p - cur + 1;
+            l++;
         }
+        if (r == R) {
+            return l - R;
+        }
+
         return -1;
+
     }
+
 
     /**
-     * 方法三： Rabin Karp - 常数复杂度
+     * KMP SubString Search
+     * https://www.bilibili.com/video/av3246487?from=search&seid=2688728712457575436
+     * // TODO: 2021-03-20
      *
      * @param haystack
      * @param needle
      * @return
      */
-    public static int strStrT(String haystack, String needle) {
-        int N = needle.length(), L = haystack.length();
-        if (N > L) return -1;
+    public int strStrTwo(String haystack, String needle) {
 
-        int a = 26;
-        long modulus = (long) Math.pow(2, 31);
-
-        long h = 0, ref_h = 0;
-        for (int i = 0; i < N; ++i) {
-            h = (h * a + charToInt(i, haystack)) % modulus;
-            ref_h = (ref_h * a + charToInt(i, needle)) % modulus;
+        if (needle.length() == 0) {
+            return 0;
         }
-        if (h == ref_h) return 0;
+        if (haystack.length() == 0) {
+            return -1;
+        }
+        return kmp(haystack.toCharArray(), haystack.length(), needle.toCharArray(), needle.length());
+    }
 
-        long aL = 1;
-        for (int i = 1; i <= N; ++i) aL = (aL * a) % modulus;
+    // bcbcbcbcbea
+    // bcbcbea
+    // 0012300
+    private int kmp(char[] lc, int l, char[] rc, int r) {
+        int[] next = next(rc, r);
+        int j = 0;
+        for (int i = 0; i < l; i++) {
 
-        for (int start = 1; start < L - N + 1; ++start) {
-            h = (h * a - charToInt(start - 1, haystack) * aL
-                    + charToInt(start + N - 1, haystack)) % modulus;
-            if (h == ref_h) return start;
+
+            while (j != 0 && lc[i] != rc[j]) {
+                j = next[j - 1];
+                if (i - j + r > l) {
+                    return -1;
+                }
+            }
+            if (lc[i] == rc[j]) {
+                j++;
+            }
+            if (j == r) {
+                return i - j + 1;
+            }
         }
         return -1;
     }
 
+    //  aabaabaaa
+    //  010123452
+    public int[] next(char[] needle, int r) {
 
-    public static int charToInt(int idx, String s) {
-        return (int) s.charAt(idx) - (int) 'a';
+        int[] next = new int[r];
+        next[0] = 0;
+        int k = next[0];
+        for (int i = 1; i < r; i++) {
+
+            while (k != 0 && needle[k] != needle[i]) {
+                k = next[k - 1];
+            }
+
+            if (needle[k] == needle[i]) {
+                k++;
+            }
+
+            next[i] = k;
+        }
+        return next;
     }
 
 
     public static void main(String[] args) {
 
-
-        String l = "mississippi";
-        String n = "issip";
-        System.out.println(strStrT(l, n));
+        StrStr st = new StrStr();
+        String l = "bcbcbcbcbea";
+        String n = "bcbcbea";
+//        String n = "aabaabaaa";
+//        System.out.println(st.next(n.toCharArray(), n.length()));
+        System.out.println(st.strStrTwo(l, n));
     }
 }

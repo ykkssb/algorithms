@@ -13,9 +13,10 @@ import java.util.concurrent.TimeUnit;
  * @Date: 2021-02-28 13:32
  */
 public class TestUse {
-    ThreadLocal tt = new ThreadLocal();
+
 
     public static void main(String[] args) {
+        ThreadLocal<Map<String, String>> tt = new ThreadLocal<Map<String, String>>();
         int i = 3;
 //        System.out.println(i<<2);
 //
@@ -32,11 +33,17 @@ public class TestUse {
         List<String> list2 = new LinkedList<>();
         Map<String, String> m2 = new HashMap<>();
 
+
+
         Map<String, String> map = new ConcurrentHashMap<>();
         for (int j = 0; j < 11; j++) {
             map.put("" + j, "b");
         }
-        System.out.println((1<<31 +1) >2);
+
+        tt.set(m2);
+        tt.get();
+
+        System.out.println((1 << 31 + 1) > 2);
         map.put("b" + i, "b");
 
 //        list.add("1");
