@@ -1,4 +1,4 @@
-package com.eureka.test.util;
+package com.eureka.test.test;
 
 import ch.qos.logback.core.util.TimeUtil;
 
@@ -15,9 +15,11 @@ import java.util.concurrent.TimeUnit;
 public class TestUse {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ThreadLocal<Map<String, String>> tt = new ThreadLocal<Map<String, String>>();
         int i = 3;
+        BitSet bitSet = new BitSet();
+
 //        System.out.println(i<<2);
 //
 //        String s = "abc";
@@ -28,11 +30,17 @@ public class TestUse {
 //        List st = new ArrayList();
 //
 //        Arrays.asList("1");
+        System.out.println(1L & 4095L);
 
         List<String> list = new ArrayList<String>();
         List<String> list2 = new LinkedList<>();
         Map<String, String> m2 = new HashMap<>();
+        Runnable target;
+        Thread t1 = new Thread();
+        for(String s:list){}
 
+        t1.start();
+        t1.join();
 
 
         Map<String, String> map = new ConcurrentHashMap<>();

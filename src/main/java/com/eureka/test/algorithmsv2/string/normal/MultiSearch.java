@@ -14,6 +14,8 @@ public class MultiSearch {
 
     /**
      * 解法一 KMP算法
+     * todo
+     * aaaa相同字符匹配
      */
     public int[][] multiSearch(String big, String[] smalls) {
         int l = big.length(), r = smalls.length;
@@ -51,12 +53,10 @@ public class MultiSearch {
 
             if (cl[i] == cr[j]) {
                 j++;
-            }
-            if (j == r) {
-                list.add(i - j + 1);
-                j = 0;
-
-                i = len++;
+                if (j == r) {
+                    list.add(i - j + 1);
+                    j = next[j - 1];
+                }
             }
         }
         return list;
@@ -89,12 +89,13 @@ public class MultiSearch {
 
     public static void main(String[] args) {
         MultiSearch m = new MultiSearch();
-
-//        String n = "aa";
+//        String n = "aa";tqxgnorygrzthdjvfffalen
 //        System.out.println(m.next(n.toCharArray(), n.length()));
-        String[] smalls = {"is", "ppi", "hi", "sis", "i", "ssippi"};
-//        String[] smalls = {"a", "aa", "aaa"};
-        System.out.println(m.multiSearch("mississippi", smalls));
-//        System.out.println(m.multiSearch("aaaaaaaaaaaaaaaaaaaaaaaa", smalls));
+//        String[] smalls = {"is", "ppi", "hi", "sis", "i", "ssippi"};
+//        System.out.println(m.multiSearch("mississippi", smalls));
+//        String[] smalls = { "ff"};
+//        System.out.println(m.multiSearch("tqxgnorygrzthdjvfffa", smalls));
+        String[] smalls = {"a", "aa", "aaa"};
+        System.out.println(m.multiSearch("aaaaaaaaaaaaaaaaaaaaaaaa", smalls));
     }
 }
