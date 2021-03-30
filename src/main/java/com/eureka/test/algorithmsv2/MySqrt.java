@@ -29,8 +29,24 @@ public class MySqrt {
         return res;
     }
 
+    public double mySqrtThr(int x) {
+        double a = 1;
+        double b = a - (a * a * a - x) / (3 * a * a);
+        while (a - b > 0.000000001 || a - b < -0.000000001) {
+            a = b;
+            b = a - (a * a * a - x) / (3 * a * a);
+        }
+        return b;
+    }
+
+    /**
+     * 牛顿迭代法
+     *
+     * @param x
+     * @return
+     */
     public long mySqrtTwo(int x) {
-        int res = 0, a = x;
+        int a = x;
         while (a * a > x) {
             a = (a + x / a) / 2;
         }
@@ -41,6 +57,6 @@ public class MySqrt {
     public static void main(String[] args) {
         MySqrt q = new MySqrt();
 
-        System.out.println(q.mySqrt(16));
+        System.out.println(q.mySqrtThr(216));
     }
 }

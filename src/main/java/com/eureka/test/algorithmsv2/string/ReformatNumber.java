@@ -44,7 +44,7 @@ public class ReformatNumber {
     }
 
     public static void main(String[] args) {
-        String s = "test.email+alex@leetcode.com";
+        String s = "testu.email+alex@leetcode.com";
         System.out.println(s.substring(0,s.indexOf("@")));
         System.out.println(s.substring(s.indexOf("@")));
 //        ReformatNumber rn = new ReformatNumber();

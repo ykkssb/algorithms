@@ -1,4 +1,4 @@
-package com.eureka.test.test;
+package com.eureka.test.testu;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;

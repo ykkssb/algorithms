@@ -14,34 +14,33 @@ import java.util.List;
  */
 public class AddToArrayForm {
 
-    // 1011
+    // 1200  , 11
+    // 0, 81
     public List<Integer> addToArrayForm(int[] A, int K) {
-        int n = A.length;
-        List<Integer> res = new ArrayList<>();
-        for (int i = n - 1; i >= 0; i--) {
-            int sum = A[i] + K % 10;
+        List<Integer> list = new ArrayList<>();
+        for (int i = A.length - 1; i >= 0; i--) {
+            int tmp = A[i] + K % 10;
             K = K / 10;
-            if (sum >= 10) {
+            if (tmp >= 10) {
                 K++;
-                sum = sum % 10;
             }
-            res.add(sum);
+            list.add(tmp % 10);
         }
 
-        for (; K != 0; ) {
-            int sum = K % 10;
-            res.add(sum);
+        while (K > 0) {
+            list.add(K % 10);
             K = K / 10;
         }
-        Collections.reverse(res);
-        return res;
+
+        Collections.reverse(list);
+        return list;
 
     }
-
     public static void main(String[] args) {
         AddToArrayForm a = new AddToArrayForm();
-        int[] aa = {2, 0, 5};
-        System.out.println(a.addToArrayForm(aa, 1806));
+        int[] aa = {9, 9, 9, 9, 9, 9, 9, 9, 9, 9};
+//        int[] aa = {1, 2, 0, 0};
+        System.out.println(a.addToArrayForm(aa, 1));
     }
 
 }
