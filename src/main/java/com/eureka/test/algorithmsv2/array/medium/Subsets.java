@@ -13,6 +13,7 @@ import java.util.List;
 public class Subsets {
 
     /**
+     * todo v2
      * 1，非递归解决
      *
      * @param nums
@@ -63,11 +64,11 @@ public class Subsets {
         List<List<Integer>> res = new ArrayList<>();
         res.add(new ArrayList<>());
         int l = 1 << nums.length;
-        for (int i = 0; i < l; i++) {
+        for (int i = 1; i < l; i++) {
 
             List<Integer> list = new ArrayList<>();
             for (int j = 0; j < nums.length; j++) {
-                if ((i >> j & 1) == 1)
+                if(((1<<j) & i) !=0)
                     list.add(nums[j]);
             }
             res.add(list);
@@ -103,7 +104,8 @@ public class Subsets {
         Subsets ss = new Subsets();
         int[] n = {1, 2, 3};
 //        System.out.println(ss.subsetsTwo(n));
-//        System.out.println(ss.subsetsThree(n));
-        System.out.println(ss.subsetsTwo(n));
+        System.out.println(ss.subsetsThree(n));
+//        System.out.println(ss.subsetsTwo(n));
+//        System.out.println(ss.subsetsFour(n));
     }
 }

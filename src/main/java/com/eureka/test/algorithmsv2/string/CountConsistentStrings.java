@@ -1,5 +1,10 @@
 package com.eureka.test.algorithmsv2.string;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * <p>1684. 统计一致字符串的数目</p>
  * https://leetcode-cn.com/problems/count-the-number-of-consistent-strings/
@@ -10,7 +15,8 @@ package com.eureka.test.algorithmsv2.string;
 public class CountConsistentStrings {
 
     /**
-     * todo 按位逻辑运算符
+     * todo  v2
+     * 按位逻辑运算符
      *
      * @param allowed
      * @param words
@@ -38,7 +44,10 @@ public class CountConsistentStrings {
         return res;
     }
 
+    static List<Integer> set = Arrays.asList('a' - 'a', 'e' - 'a', 'i' - 'a', 'o' - 'a', 'u' - 'a',
+            'A' - 'a', 'E' - 'a', 'I' - 'a', 'O' - 'a', 'U' - 'a');
     public static void main(String[] args) {
+        set.contains(1);
         CountConsistentStrings cc = new CountConsistentStrings();
         System.out.println('b' - 'a');
         String s = "ab";

@@ -10,22 +10,23 @@ package com.eureka.test.algorithmsv2.array;
 public class HeightChecker {
 
     /**
-     * todo
+     * todo v1
      * 桶排序
      *
      * @param heights
      * @return
      */
     public int heightChecker(int[] heights) {
-        int[] co = new int[101];
-        for (int he : heights) {
-            co[he]++;
+        int[] m = new int[101];
+        int len = heights.length;
+        int res = 0;
+        for(int t:heights){
+            m[t]++;
         }
-
-        int res = 0, ma = 0;
-        for (int i = 0; i < co.length; i++) {
-            while (co[i]-- > 0) {
-                if (heights[ma++] != i) {
+        int index = 0;
+        for(int i=0;i<m.length;++i){
+            while(m[i]-->0){
+                if(heights[index++]!=i){
                     res++;
                 }
             }
@@ -34,6 +35,9 @@ public class HeightChecker {
     }
 
     public static void main(String[] args) {
+        for(int i=0;i<10;++i){
+            System.out.println(i);
+        }
         HeightChecker hc = new HeightChecker();
         int[] ss = {1, 1, 10, 2, 1, 3};
         System.out.println(hc.heightChecker(ss));

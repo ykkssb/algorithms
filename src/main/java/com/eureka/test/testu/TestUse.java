@@ -17,6 +17,8 @@ public class TestUse {
     public static void main(String[] args) throws InterruptedException {
         ThreadLocal<Map<String, String>> tt = new ThreadLocal<Map<String, String>>();
         System.out.println(Integer.SIZE);
+        System.out.println(1 ^ 1);
+        System.out.println(3 ^ 3);
 //        BitSet bitSet = new BitSet();
 
 //        t1.start();
@@ -40,9 +42,12 @@ public class TestUse {
         for (String s : list) {
         }
 
+        String[] st = {"1", "2"};
+        String.join("", st);
 
 
-//        Map<String, String> map = new ConcurrentHashMap<>();
+        Map<String, String> map = new ConcurrentHashMap<>();
+        map.putIfAbsent("1", "2");
 //        for (int j = 0; j < 11; j++) {
 //            map.put("" + j, "b");
 //        }

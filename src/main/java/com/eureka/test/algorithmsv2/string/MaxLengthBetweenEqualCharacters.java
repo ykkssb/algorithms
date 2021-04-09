@@ -1,5 +1,8 @@
 package com.eureka.test.algorithmsv2.string;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * <p>1624. 两个相同字符之间的最长子字符串</p>
  * https://leetcode-cn.com/problems/largest-substring-between-two-equal-characters/
@@ -10,10 +13,13 @@ package com.eureka.test.algorithmsv2.string;
 public class MaxLengthBetweenEqualCharacters {
     public int maxLengthBetweenEqualCharacters(String s) {
         int res = -1;
-        char[] ch = s.toCharArray();
-        for (int i = 0; i < ch.length; i++) {
-            int m = s.lastIndexOf(ch[i] ) - s.indexOf(ch[i] )-1;
-            res = Math.max(res, m);
+        Map<Character,Integer> map = new HashMap<>();
+        for(int i=0;i<s.length();++i){
+            if(!map.containsKey(s.charAt(i))){
+                map.put(s.charAt(i),i);
+            }else{
+                res= Math.max(res,  i-1-map.get(s.charAt(i)));
+            }
         }
         return res;
     }

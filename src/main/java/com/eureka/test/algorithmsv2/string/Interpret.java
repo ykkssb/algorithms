@@ -10,7 +10,6 @@ package com.eureka.test.algorithmsv2.string;
 public class Interpret {
     public String interpret(String command) {
         StringBuffer sb = new StringBuffer();
-
         char[] ch = command.toCharArray();
         for (int i = 0; i < ch.length; i++) {
             if (ch[i] == 'G') {
@@ -21,6 +20,7 @@ public class Interpret {
                 sb.append("al");
             }
         }
+        sb.deleteCharAt(sb.length()-1);
         return sb.toString();
     }
 

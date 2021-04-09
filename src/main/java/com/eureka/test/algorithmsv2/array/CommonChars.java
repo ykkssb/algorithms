@@ -1,6 +1,7 @@
 package com.eureka.test.algorithmsv2.array;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,27 +13,26 @@ import java.util.List;
  */
 public class CommonChars {
     public List<String> commonChars(String[] A) {
-        List<String> list = new ArrayList<>();
-                int[] ma = new int[26];
-                char[] cc = A[0].toCharArray();
+        int[] ma = new int[26];
+        Arrays.fill(ma, Integer.MAX_VALUE);
+        for (String a : A) {
+            int[] n = new int[26];
+            int length = a.length();
+            for (int i = 0; i < length; ++i) {
+                char ch = a.charAt(i);
+                n[ch - 'a']++;
+            }
 
-                for (int i = 0; i < cc.length; i++) {
-                    ma[cc[i] - 'a']++;
-                }
-                for (int i = 1; i < A.length; i++) {
-                    char[] ch = A[i].toCharArray();
-                    int[] na = new int[26];
-                    for (char c : ch) {
-                        na[c - 'a']++;
-                    }
-                    for (int j = 0; j < 26; j++) {
-                        ma[j] = Math.min(na[j], ma[j]);
-                    }
-                }
-                for (int i = 0; i < 26; i++) {
-                    while (ma[i]-- > 0) {
-                        list.add((char)('a'+i)+"");
-                    }
+            for (int i = 0; i < 26; ++i) {
+                ma[i] = Math.min(n[i], ma[i]);
+            }
+        }
+
+        List<String> list = new ArrayList<String>();
+        for (int i = 0; i < 26; ++i) {
+            for (int j = 0; j < ma[i]; ++j) {
+                list.add(String.valueOf((char) ('a' + i)));
+            }
         }
         return list;
 

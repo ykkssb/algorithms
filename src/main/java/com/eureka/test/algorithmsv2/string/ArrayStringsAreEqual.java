@@ -2,7 +2,7 @@ package com.eureka.test.algorithmsv2.string;
 
 /**
  * <p>1662. 检查两个字符串数组是否相等</p>
- *
+ * https://leetcode-cn.com/problems/check-if-two-string-arrays-are-equivalent/solution/
  * @Author : Eric
  * @Date: 2021-01-26 15:21
  */

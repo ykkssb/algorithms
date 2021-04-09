@@ -10,6 +10,14 @@ import java.util.Stack;
  * @Date: 2021-01-28 16:05
  */
 public class ReformatNumber {
+    public static void main(String[] args) {
+        String s = "testu.email+alex@leetcode.com";
+        System.out.println(s.substring(0,s.indexOf("@")));
+        System.out.println(s.substring(s.indexOf("@")));
+//        ReformatNumber rn = new ReformatNumber();
+//        System.out.println(rn.reformatNumber("123 4-5678"));
+    }
+
     public String reformatNumber(String number) {
         int n = 0, i = 0, r = 0;
         char[] ch = number.toCharArray();
@@ -41,14 +49,6 @@ public class ReformatNumber {
             }
         }
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        String s = "testu.email+alex@leetcode.com";
-        System.out.println(s.substring(0,s.indexOf("@")));
-        System.out.println(s.substring(s.indexOf("@")));
-//        ReformatNumber rn = new ReformatNumber();
-//        System.out.println(rn.reformatNumber("123 4-5678"));
     }
     // 1-2-3-4-5-6-7-8
     // 8-7-6-5-4-3-2-1

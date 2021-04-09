@@ -20,8 +20,19 @@ public class ReverseLeftWords {
 
     public static void main(String[] args) {
         String s = "abcdef";
-        System.out.println(s.substring(1, 5));
-        System.out.println(s.substring(2));
+//        System.out.println(s.substring(1, 5));
+//        System.out.println(s.substring(2));
+        String number = "ab d-d";
+        number.replace(s.charAt(0),'C') ;
+        System.out.println(number);
+        StringBuffer sb = new StringBuffer();
+        for(char c:number.toCharArray()){
+            if(c!=' ' && c!='-'){
+                sb.append(c);
+            }
+        }
+        System.out.println(sb.length());
+
     }
 
 }

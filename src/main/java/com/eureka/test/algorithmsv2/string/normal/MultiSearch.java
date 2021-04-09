@@ -42,7 +42,6 @@ public class MultiSearch {
         List<Integer> list = new ArrayList<>();
         int[] next = next(cr, r);
         int j = 0;
-        int len = 0;
         for (int i = 0; i < l; i++) {
             while (j != 0 && cl[i] != cr[j]) {
                 j = next[j - 1];

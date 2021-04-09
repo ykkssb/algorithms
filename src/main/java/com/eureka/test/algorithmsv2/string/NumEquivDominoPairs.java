@@ -11,6 +11,7 @@ import java.util.Arrays;
  */
 public class NumEquivDominoPairs {
     /**
+     * todo v1
      * 二元组
      *
      * @param dominoes

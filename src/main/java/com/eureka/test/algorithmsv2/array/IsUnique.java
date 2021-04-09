@@ -10,14 +10,14 @@ package com.eureka.test.algorithmsv2.array;
 public class IsUnique {
 
     /**
-     * todo v1
+     * todo v3
      * 不借助数据结构 位运算判断是否唯一
      *
      * @param astr
      * @return
      */
     public boolean isUnique(String astr) {
-        int match = 1;
+        int match = 0;
         int p;
         for (int i = 0; i < astr.length(); i++) {
             int index = astr.charAt(i) - 'a';
@@ -32,6 +32,6 @@ public class IsUnique {
 
     public static void main(String[] args) {
         IsUnique iu = new IsUnique();
-        System.out.println(iu.isUnique("leetcode"));
+        System.out.println(iu.isUnique("abca"));
     }
 }

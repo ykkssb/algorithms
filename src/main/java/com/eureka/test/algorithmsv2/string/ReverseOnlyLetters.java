@@ -42,5 +42,7 @@ public class ReverseOnlyLetters {
         String s2 = "ccc";
         ReverseOnlyLetters r = new ReverseOnlyLetters();
         System.out.println(r.reverseOnlyLetters(s));
+        String res = "abcd";
+        System.out.println(res.substring(0,4));
     }
 }

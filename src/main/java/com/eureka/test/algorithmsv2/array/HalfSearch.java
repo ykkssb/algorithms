@@ -2,7 +2,7 @@ package com.eureka.test.algorithmsv2.array;
 
 /**
  * <p>二分查找</p>
- *
+ * https://leetcode-cn.com/problems/binary-search/submissions/
  * @Author : Eric
  * @Date: 2021-03-23 22:16
  */
@@ -10,12 +10,12 @@ public class HalfSearch {
 
     public int halfSearch(int[] content, int target) {
         int len = content.length;
-        int l = 0, r = content[len - 1];
+        int l = 0, r = len-1;
         int mid = 0;
         while (l <= r) {
             mid = (l + r) / 2;
             if (target == content[mid]) {
-                return 1;
+                return mid;
             } else if (target < content[mid]) {
                 r = mid - 1;
             } else {
@@ -29,6 +29,6 @@ public class HalfSearch {
     public static void main(String[] args) {
         HalfSearch h = new HalfSearch();
         int[] con = {1, 3, 5, 7, 9, 10};
-        System.out.println(h.halfSearch(con, 5));
+        System.out.println(h.halfSearch(con, 165));
     }
 }

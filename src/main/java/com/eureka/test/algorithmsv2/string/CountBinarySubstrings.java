@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * <p>696. 计数二进制子串 </p>
  * https://leetcode-cn.com/problems/count-binary-substrings/
+ * https://leetcode-cn.com/problems/count-binary-substrings/solution/ji-shu-er-jin-zhi-zi-chuan-by-leetcode-solution/
  *
  * @Author : Eric
  * @Date: 2021-02-20 14:38
@@ -13,6 +14,7 @@ import java.util.List;
 public class CountBinarySubstrings {
 
     /**
+     * todo v2
      * 方法一：按字符分组
      *
      * @param s

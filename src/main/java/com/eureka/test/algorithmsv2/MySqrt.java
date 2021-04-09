@@ -30,10 +30,10 @@ public class MySqrt {
     }
 
     public double mySqrtThr(int x) {
-        double a = 1;
+        double a =1;
         double b = a - (a * a * a - x) / (3 * a * a);
-        while (a - b > 0.000000001 || a - b < -0.000000001) {
-            a = b;
+        while(a-b>0.000000001|| a-b<-0.000000001){
+            a =b;
             b = a - (a * a * a - x) / (3 * a * a);
         }
         return b;
@@ -57,6 +57,7 @@ public class MySqrt {
     public static void main(String[] args) {
         MySqrt q = new MySqrt();
 
-        System.out.println(q.mySqrtThr(216));
+//        System.out.println(q.mySqrtTwo(16));
+        System.out.println(q.mySqrtThr(27));
     }
 }
