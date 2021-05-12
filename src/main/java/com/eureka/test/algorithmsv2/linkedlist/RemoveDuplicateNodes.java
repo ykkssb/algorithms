@@ -37,6 +37,32 @@ public class RemoveDuplicateNodes {
         return head;
     }
 
+    /**
+     * todo v2
+     * @param head
+     * @return
+     */
+    public ListNode removeDuplicateNodesTwo(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode l = head;
+        while (l != null) {
+            ListNode t = l;
+            while (t.next != null) {
+                if(t.next.val ==l.val){
+                    ListNode tmp = t.next.next;
+                    t.next = tmp;
+                }else {
+                    t = t.next;
+                }
+            }
+            l = l.next;
+        }
+        return head;
+    }
+
+
     public static void main(String[] args) {
         ListNode l = new ListNode();
         l.val = 1;
@@ -46,6 +72,6 @@ public class RemoveDuplicateNodes {
         l.next.next.next.next = new ListNode(2);
         l.next.next.next.next.next = new ListNode(1);
         RemoveDuplicateNodes n = new RemoveDuplicateNodes();
-        System.out.println(n.removeDuplicateNodes(l));
+        System.out.println(n.removeDuplicateNodesTwo(l));
     }
 }

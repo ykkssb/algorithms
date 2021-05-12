@@ -11,16 +11,15 @@ import java.util.*;
  */
 public class StringMatching {
     public List<String> stringMatching(String[] words) {
-        Set<String> res = new HashSet<>();
-        Arrays.sort(words, (String a, String b) -> b.length() - a.length());
-        for (int i = 0; i < words.length; i++) {
-            for (int j = 1; j < words.length; j++) {
-                if (words[i].contains(words[j]) && !words[i].equals(words[j])) {
-                    res.add(words[j]);
+        Set<String> set = new HashSet<>();
+        for(int i=0;i<words.length;i++){
+            for(int j=0;j<words.length;j++){
+                if(i!=j && words[i].indexOf(words[j])>=0){
+                    set.add(words[j]);
                 }
             }
         }
-        return new ArrayList<>(res);
+        return new ArrayList<>(set);
     }
 
     public static void main(String[] args) {

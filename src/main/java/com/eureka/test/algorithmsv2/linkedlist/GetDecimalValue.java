@@ -12,8 +12,9 @@ import com.eureka.test.container.ListNode;
 public class GetDecimalValue {
 
     /**
+     * todo v1
      * 本题难点在移位符
-     *
+     * 运算符优先级 + 优先于比较 优先 &
      * @param head
      * @return
      */

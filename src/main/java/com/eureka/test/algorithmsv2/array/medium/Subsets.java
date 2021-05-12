@@ -103,9 +103,9 @@ public class Subsets {
     public static void main(String[] args) {
         Subsets ss = new Subsets();
         int[] n = {1, 2, 3};
-//        System.out.println(ss.subsetsTwo(n));
-        System.out.println(ss.subsetsThree(n));
-//        System.out.println(ss.subsetsTwo(n));
-//        System.out.println(ss.subsetsFour(n));
+//        System.out.println(ss.subsets(n));
+//        System.out.println(ss.subsetsThree(n));
+//        System.out.println(ss.subsetTwo(n));
+        System.out.println(ss.subsetsFour(n));
     }
 }

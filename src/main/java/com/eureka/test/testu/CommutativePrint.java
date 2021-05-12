@@ -20,6 +20,7 @@ public class CommutativePrint {
         ReentrantLock lock = new ReentrantLock();
         Condition c1 = lock.newCondition();
         Condition c2 = lock.newCondition();
+
         new Thread(() -> {
             for (; ; ) {
 //                synchronized (b){

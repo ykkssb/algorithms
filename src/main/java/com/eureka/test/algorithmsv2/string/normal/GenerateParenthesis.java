@@ -14,6 +14,7 @@ import java.util.*;
 public class GenerateParenthesis {
 
     /**
+     * todo v3
      * 深度优先遍历
      *
      * @param n
@@ -69,7 +70,7 @@ public class GenerateParenthesis {
                 res.add(s.res);
             }
 
-            if(s.left>s.right){
+            if (s.left > s.right) {
                 continue;
             }
             if (s.left > 0) {

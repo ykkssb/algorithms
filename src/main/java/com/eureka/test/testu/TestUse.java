@@ -45,6 +45,7 @@ public class TestUse {
         String[] st = {"1", "2"};
         String.join("", st);
 
+        Map<String, String> mp = new HashMap<>();
 
         Map<String, String> map = new ConcurrentHashMap<>();
         map.putIfAbsent("1", "2");

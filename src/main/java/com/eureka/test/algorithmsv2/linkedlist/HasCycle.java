@@ -4,22 +4,21 @@ import com.eureka.test.container.ListNode;
 
 /**
  * <p>141. 环形链表</p>
- * https://leetcode-cn.com/problems/linked-list-cycle/
+ * https://leetcode-cn.com/problems/linked-list-c了；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；；`ycle/
  *
  * @Author : Eric
  * @Date: 2021-01-21 20:50
  */
 public class HasCycle {
     public boolean hasCycle(ListNode head) {
-        if (head == null || head.next == null) {
+        if(head==null|| head.next ==null){
             return false;
         }
-        ListNode s = head, f = head;
-
-        while (f.next != null && f.next.next != null) {
-            s = s.next;
-            f = f.next.next;
-            if (s == f) {
+        ListNode l = head, r=head;
+        while(r!=null && r.next!=null){
+            l = l.next;
+            r =r.next.next;
+            if(l==r){
                 return true;
             }
         }

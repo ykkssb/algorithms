@@ -40,6 +40,7 @@ public class IsPalindrome {
 
     /**
      * 快慢指针
+     * 找中间点同时反转 todo v3
      *
      * @param head
      * @return
@@ -48,7 +49,7 @@ public class IsPalindrome {
         ListNode cur = null, pre = head;
         ListNode slow = head, fast = head;
 
-        // 1-2-3-3-2-1
+        // 1-2-3-2-1
         while (fast != null && fast.next != null) {
             pre = slow;
 
@@ -62,8 +63,8 @@ public class IsPalindrome {
             slow = slow.next;
         }
 
-        while(slow!=  null &&  cur!=null){
-            if(slow.val!=cur.val){
+        while (slow != null && cur != null) {
+            if (slow.val != cur.val) {
                 return false;
             }
             slow = slow.next;

@@ -14,6 +14,12 @@ import java.util.List;
  * @Date: 2021-01-20 16:38
  */
 public class ReverseList {
+    /**
+     * 反转链表
+     *
+     * @param head
+     * @return
+     */
     public ListNode reverseList(ListNode head) {
         ListNode pre = head, cur = null;
         while (pre != null) {
@@ -25,6 +31,24 @@ public class ReverseList {
         return cur;
     }
 
+    /**1 2 3 2 1
+     * 方法二：递归
+     * todo v2
+     *
+     * @param head
+     * @return
+     */
+    // 1-2-3-4-5-nullz
+    public ListNode reverseListTwo(ListNode head) {
+        if (head==null || head.next==null){
+            return head;
+        }
+
+        ListNode tmp = reverseListTwo(head.next);
+        head.next.next = head;
+        head.next = null;
+        return tmp;
+    }
 
     public int[] reversePrint(ListNode head) {
         List<Integer> list = new ArrayList<>();
@@ -54,6 +78,7 @@ public class ReverseList {
 
         // 1-2-3-4-5
         ReverseList r = new ReverseList();
-        System.out.println(r.reverseList(l));
+//        System.out.println(r.reverseList(l));
+        System.out.println(r.reverseListTwo(l));
     }
 }

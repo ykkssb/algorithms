@@ -10,6 +10,14 @@ import java.util.Arrays;
  * @Date: 2021-01-12 11:25
  */
 public class MergeTwoArray {
+    /**
+     * todo v3
+     *
+     * @param nums1
+     * @param m
+     * @param nums2
+     * @param n
+     */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int l1 = m - 1, l2 = n - 1, len = m + n - 1;
         while (l1 >= 0 && l2 >= 0) {
@@ -31,7 +39,7 @@ public class MergeTwoArray {
                 nums1[len--] = nums2[r--];
             }
         }
-        System.arraycopy(nums2, 0, nums1, 0, r+1);
+        System.arraycopy(nums2, 0, nums1, 0, r + 1);
         Arrays.stream(nums1).forEach(System.out::println);
 
     }

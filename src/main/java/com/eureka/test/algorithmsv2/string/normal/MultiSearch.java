@@ -32,16 +32,14 @@ public class MultiSearch {
         return rs;
     }
 
-    // aaaaaaaa...
-    // aa
     public List<Integer> kmp(char[] cl, int l, char[] cr, int r) {
         if (l == 0 || r == 0 || l < r) {
             return new ArrayList<>();
         }
-//        int[] res = new int[l];
         List<Integer> list = new ArrayList<>();
         int[] next = next(cr, r);
         int j = 0;
+        // 比较i从0开始
         for (int i = 0; i < l; i++) {
             while (j != 0 && cl[i] != cr[j]) {
                 j = next[j - 1];
@@ -65,6 +63,7 @@ public class MultiSearch {
         int[] next = new int[l];
         next[0] = 0;
         int k = 0;
+        // next数组i从1开始
         for (int i = 1; i < l; i++) {
 
             while (k != 0 && pat[k] != pat[i]) {

@@ -20,8 +20,8 @@ public class MinFlips {
         char match = '0';
         char[] ch = target.toCharArray();
         for (int i = 0; i < ch.length; i++) {
-            char now = ch[i];
-            if (ch[i] != ch[i - 1]) {
+            if (ch[i] != match) {
+                match = ch[i];
                 res++;
             }
         }
@@ -31,6 +31,6 @@ public class MinFlips {
 
     public static void main(String[] args) {
         MinFlips m = new MinFlips();
-        System.out.println(m.minFlips("101"));
+        System.out.println(m.minFlips("11011"));
     }
 }

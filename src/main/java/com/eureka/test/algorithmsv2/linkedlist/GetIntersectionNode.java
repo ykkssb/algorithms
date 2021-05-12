@@ -10,11 +10,18 @@ import com.eureka.test.container.ListNode;
  * @Date: 2021-01-21 21:06
  */
 public class GetIntersectionNode {
+    /**
+     * todo v2
+     *
+     * @param headA
+     * @param headB
+     * @return
+     */
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode l = headA, r = headB;
         while (l != r) {
             l = l != null ? l.next : headB;
-            r = r!=null?r.next:headA;
+            r = r != null ? r.next : headA;
         }
         return l;
     }

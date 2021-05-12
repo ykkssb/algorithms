@@ -52,16 +52,16 @@ public class SortedListToBST {
             n++;
             head = head.next;
         }
-        return buildT(0, n - 1);
+        return buildT(0, n);
     }
 
     public TreeNode buildT(int l, int r) {
-        if (l > r) {
+        if (l >= r) {
             return null;
         }
-        int mid = (l + r + 1) / 2;
+        int mid = (l + r ) / 2;
         TreeNode t = new TreeNode(0);
-        t.left = buildT(l, mid - 1);
+        t.left = buildT(l, mid);
         t.val = global.val;
         global = global.next;
         t.right = buildT(mid + 1, r);
@@ -84,7 +84,9 @@ public class SortedListToBST {
         l.next.next = new ListNode(0);
         l.next.next.next = new ListNode(5);
         l.next.next.next.next = new ListNode(9);
+        if(!"".equals("a")){
 
-        System.out.println(sl.sortedListToBST(l));
+        }
+        System.out.println(sl.sortedListToBSTwo(l));
     }
 }
