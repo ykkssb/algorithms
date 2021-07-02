@@ -40,11 +40,11 @@ public class RemoveDuplicatesTwo {
      */
 
     public int removeDuplicatesTwo(int[] nums) {
-        int maxRepeat = 2;
+        int max =3;
         int slow = 1;
-        for (int fast = 2; fast < nums.length; fast++) {
-            if (nums[fast] != nums[slow - maxRepeat + 1]) {
-                nums[++slow] = nums[fast];
+        for(int f = 2;f<nums.length;++f){
+            if(nums[f] !=nums[slow+1-max]){
+                nums[++slow] = nums[f];
             }
         }
         return slow + 1;
@@ -52,7 +52,7 @@ public class RemoveDuplicatesTwo {
 
     public static void main(String[] args) {
         RemoveDuplicatesTwo t = new RemoveDuplicatesTwo();
-        int[] n = {1, 1, 1, 2, 2, 3};
+        int[] n = {1, 1, 1, 1,1,2, 2, 3};
         System.out.println(t.removeDuplicatesTwo(n));
 
     }

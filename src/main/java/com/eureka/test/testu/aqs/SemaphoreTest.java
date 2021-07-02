@@ -13,7 +13,7 @@ public class SemaphoreTest {
     //停车场同时容纳的车辆10
     private  static Semaphore semaphore=new Semaphore(10);
     public static void main(String[] args) {
-        //模拟100辆车进入停车场
+        //R
         for(int i=0;i<100;i++){
             Thread thread=new Thread(new Runnable() {
                 public void run() {
