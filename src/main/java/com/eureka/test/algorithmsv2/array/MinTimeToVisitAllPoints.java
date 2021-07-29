@@ -10,10 +10,8 @@ package com.eureka.test.algorithmsv2.array;
 public class MinTimeToVisitAllPoints {
     public int minTimeToVisitAllPoints(int[][] points) {
         int res = 0;
-        for (int i = 1; i < points.length; i++) {
-            int l = Math.abs(points[i][0] - points[i - 1][0]);
-            int r = Math.abs(points[i][1] - points[i - 1][1]);
-            res += Math.max(l, r);
+        for(int i=1;i<points[0].length; ++i){
+            res += Math.max( Math.abs(points[0][i]-points[0][i-1]), Math.abs(points[1][i]-points[1][i-1]) );
         }
         return res;
     }

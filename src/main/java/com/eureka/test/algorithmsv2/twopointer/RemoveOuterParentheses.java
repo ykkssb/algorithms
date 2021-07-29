@@ -34,6 +34,7 @@ public class RemoveOuterParentheses {
     }
 
     /**
+     * todo  v2
      * 方法2：单指针计数
      */
     public String removeOuterParentheses2(String S) {

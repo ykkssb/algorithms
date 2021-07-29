@@ -47,9 +47,9 @@ public class MergeTwoArray {
     //1223 5
     public static void main(String[] args) {
         int[] n1 = {2, 2, 3, 0, 0, 0};
-        int[] n2 = {1, 1, 6};
+        int[] n2 = {1, 5, 6};
 
         MergeTwoArray m = new MergeTwoArray();
-        m.mergeTwo(n1, 3, n2, 3);
+        m.merge(n1, 3, n2, 3);
     }
 }

@@ -20,13 +20,13 @@ public class HeightChecker {
         int[] m = new int[101];
         int len = heights.length;
         int res = 0;
-        for(int t:heights){
+        for (int t : heights) {
             m[t]++;
         }
         int index = 0;
-        for(int i=0;i<m.length;++i){
-            while(m[i]-->0){
-                if(heights[index++]!=i){
+        for (int i = 0; i < m.length; ++i) {
+            while (m[i]-- > 0) {
+                if (heights[index++] != i) {
                     res++;
                 }
             }
@@ -35,7 +35,7 @@ public class HeightChecker {
     }
 
     public static void main(String[] args) {
-        for(int i=0;i<10;++i){
+        for (int i = 0; i < 10; ++i) {
             System.out.println(i);
         }
         HeightChecker hc = new HeightChecker();

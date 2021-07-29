@@ -1,4 +1,4 @@
-package com.eureka.test.algorithmsv2.twopointer;
+package com.eureka.test.algorithmsv2.twopointer.medium;
 
 import java.util.Arrays;
 
@@ -41,18 +41,20 @@ public class RemoveDuplicatesTwo {
 
     public int removeDuplicatesTwo(int[] nums) {
         int max =3;
-        int slow = 1;
-        for(int f = 2;f<nums.length;++f){
+        int slow = max-1;
+        for(int f = max;f<nums.length;++f){
             if(nums[f] !=nums[slow+1-max]){
                 nums[++slow] = nums[f];
             }
         }
+                Arrays.stream(nums).forEach(System.out::print);
+
         return slow + 1;
     }
 
     public static void main(String[] args) {
         RemoveDuplicatesTwo t = new RemoveDuplicatesTwo();
-        int[] n = {1, 1, 1, 1,1,2, 2, 3};
+        int[] n = {0,0,0,0,1,1,1,1,2,3,3};
         System.out.println(t.removeDuplicatesTwo(n));
 
     }

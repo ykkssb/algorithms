@@ -9,7 +9,7 @@ package com.eureka.test.algorithmsv2.array;
  * @Date: 2021-03-25 00:29
  */
 public class SumOddLengthSubarrays {
-    // TODO: 2021-03-25
+    // todo v3
 
     /**
      * odd奇数，even偶数
@@ -33,17 +33,19 @@ public class SumOddLengthSubarrays {
      * 对于数组中的一个数字来说，它前面的数字可以出现0~i-1次，它后面的数字可以出现0~n-i次。要是前面的数字出现偶数次，则i后面的数字也应该出现偶数次，
      * 前面奇数次，后面同样奇数次。
      *
+     * l = i+1 , r = n-i;
      * @param arr
      * @return
      */
     public int sumOddLengthSubarrays(int[] arr) {
-        int res = 0;
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            int ls = i, rs = n - i - 1;
-            int left_odd = (ls +1)/ 2, le = ls / 2 + 1;
-            int right_odd = (rs +1)/ 2, re = rs / 2 + 1;
-            res += arr[i] * (left_odd * right_odd + le * re);
+        int res= 0;
+        int l =0,r=0,n=arr.length;
+        for(int i=0;i<n; ++i)       {
+            l = i+1 ;
+            r  = n-i;
+            int lj = l/2, lo = (l+1)/2;
+            int rj = r/2, ro = (r+1)/2;
+            res += arr[i]*(lj*rj + lo*ro);
         }
         return res;
     }

@@ -13,16 +13,14 @@ public class ReverseList {
 
     // 1 - 4 - 2 -null
     public static ListNode reverseList(ListNode head) {
-        ListNode pre = null;
-        ListNode cur = null;
-        while (head != null) {
-            cur = head.next;
-            head.next = pre;
-            pre = head;
-
-            head = cur;
+        ListNode cur = null, pre =head;
+        while(pre!=null){
+            ListNode tmp = pre.next;
+            pre.next = cur;
+            cur = pre;
+            pre =tmp;
         }
-        return pre;
+        return cur;
     }
 
     public static void main(String[] args) {

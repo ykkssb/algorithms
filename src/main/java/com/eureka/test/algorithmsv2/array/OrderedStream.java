@@ -19,7 +19,7 @@ public class OrderedStream {
 
 
     }
-
+    // todo
     public List<String> insert(int idKey, String value) {
         a[idKey - 1] = value;
         if (a[ptr - 1] == null) {
