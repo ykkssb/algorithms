@@ -47,6 +47,5 @@ public class FindMaximumXOR {
 
         Integer.valueOf("1");
 
-
     }
 }
