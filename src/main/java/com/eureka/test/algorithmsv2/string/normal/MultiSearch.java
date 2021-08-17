@@ -14,7 +14,7 @@ public class MultiSearch {
 
     /**
      * 解法一 KMP算法
-     * todo
+     * todo v6
      * aaaa相同字符匹配
      */
     public int[][] multiSearch(String big, String[] smalls) {

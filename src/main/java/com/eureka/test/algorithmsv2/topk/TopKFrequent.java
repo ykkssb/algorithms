@@ -16,7 +16,7 @@ public class TopKFrequent {
     /**
      * 解法二：最小堆
      * 题目最终需要返回的是前 kk 个频率最大的元素，可以想到借助堆这种数据结构，对于 kk 频率之后的元素不用再去处理，进一步优化时间复杂度
-     *
+     * todo v3
      * @param nums
      * @param k
      * @return
@@ -50,7 +50,7 @@ public class TopKFrequent {
         int[] res = new int[k];
         int l = 0;
         while (!pq.isEmpty()) {
-            res[l++] = pq.remove();
+            res[l++] = pq.poll();
         }
 
         return res;

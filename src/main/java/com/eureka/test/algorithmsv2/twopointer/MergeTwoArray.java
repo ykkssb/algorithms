@@ -19,13 +19,12 @@ public class MergeTwoArray {
      * @param n
      */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int l1 = m - 1, l2 = n - 1, len = m + n - 1;
-        while (l1 >= 0 && l2 >= 0) {
-            nums1[len--] = nums1[l1] > nums2[l2] ?
-                    nums1[l1--] : nums2[l2--];
+        int len =m+n-1 , r= n-1 , l =m-1;
+        while(l>0 && r>0){
+            nums1[len--] =  nums1[l] > nums2[r] ? nums1[l--] : nums2[r--];
+
         }
-        System.arraycopy(nums2, 0, nums1, 0, l2 + 1);
-        Arrays.stream(nums1).forEach(System.out::println);
+        System.arraycopy(nums1, 0 ,nums2, 0, r);
 
     }
 

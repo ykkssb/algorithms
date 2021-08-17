@@ -11,6 +11,12 @@ import java.util.*;
  */
 public class TopKFrequentTw {
 
+    /**
+     *
+     * @param words
+     * @param k
+     * @return
+     */
     public List<String> topKFrequent(String[] words, int k) {
         Map<String, Integer> map = new HashMap<>();
         for (String s : words) {
@@ -35,7 +41,7 @@ public class TopKFrequentTw {
     }
 
     /**
-     * 方法二：优先队列
+     * 方法二：优先队列 todo v2
      * 时间复杂度：O(l×n+m×l logk)
      * 空间复杂度：O(l×(m+k))
      *
@@ -78,8 +84,8 @@ public class TopKFrequentTw {
 
     public static void main(String[] args) {
         TopKFrequentTw t = new TopKFrequentTw();
-        String[] w = {"i", "love", "leetcode", "i", "love", "coding"};
+        String[] w = {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"};
 
-        System.out.println(t.topKFrequent(w, 1));
+        System.out.println(t.topKFrequentTwo(w, 4));
     }
 }

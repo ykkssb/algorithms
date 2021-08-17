@@ -14,7 +14,7 @@ import java.util.List;
 public class CountBinarySubstrings {
 
     /**
-     * todo v2
+     * todo v4 傻逼脑残题
      * 方法一：按字符分组
      *
      * @param s
@@ -46,6 +46,11 @@ public class CountBinarySubstrings {
         return res;
     }
 
+    /**
+     * todo v2
+     * @param s
+     * @return
+     */
     public int countBinarySubstringsTwo(String s) {
         char[] ch = s.toCharArray();
         int len = 0, res = 0;
@@ -65,7 +70,7 @@ public class CountBinarySubstrings {
 
     public static void main(String[] args) {
         CountBinarySubstrings c = new CountBinarySubstrings();
-        System.out.println(c.countBinarySubstringsTwo("001100"));
+        System.out.println(c.countBinarySubstrings("001100"));
     }
 }
 

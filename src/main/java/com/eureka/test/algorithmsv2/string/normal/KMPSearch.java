@@ -8,46 +8,47 @@ package com.eureka.test.algorithmsv2.string.normal;
  */
 public class KMPSearch {
     public boolean multiSearch(String big, String smalls) {
-        char[] cl = big.toCharArray();
-        char[] cr = smalls.toCharArray();
-        int[] next = next(cr);
+
+        char[] b = big.toCharArray();
+        char[] s = smalls.toCharArray();
+        int[] next = next(b);
         int j =0;
-        for(int i=0;i<cl.length;++i){
-            while(j!=0 && cl[i]!=cr[j]){
-                j = next[j - 1];
+        for(int i=0;i<b.length;++i){
+            while(j>0 && b[i]!=s[j]){
+                j = next[j-1];
             }
-            if(cl[i]==cr[j]){
+            if(b[i] == s[j]){
                 j++;
-                if(j==smalls.length()){
+                if(j==s.length){
                     return true;
                 }
             }
         }
-
         return false;
     }
 
     public int[] next(char[] ch){
-        int[] res = new int[ch.length];
-        int next=0;
+        int[] next = new int[ch.length];
+        int j=0;
         for(int i=1;i<ch.length;++i){
-            while(next!=0 && ch[i]!=ch[next]){
-                next = res[next - 1];
+            while(j>0 && ch[i]!= ch[j]){
+                j = next[j-1];
             }
-
-            if(ch[i]==ch[next]){
-                next++;
+            if(ch[i] == ch[j]){
+                j++;
             }
+            next[i] = j;
         }
-        return res;
+        return next;
     }
+
 
     public static void main(String[] args) {
         KMPSearch kmp = new KMPSearch();
         String target = "123";
 
-        System.out.println(target.charAt(0)=='1');
+//        System.out.println(target.charAt(0)=='1');
 
-            System.out.println(kmp.multiSearch("ababcdababdc", "ababd"));
+            System.out.println(kmp.multiSearch("abcdabca", "abcde"));
     }
 }

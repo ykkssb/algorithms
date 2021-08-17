@@ -1,5 +1,7 @@
 package com.eureka.test.algorithmsv2.string;
 
+import java.util.List;
+
 /**
  * 剑指 Offer 58 - I. 翻转单词顺序
  * https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/
@@ -11,29 +13,31 @@ public class ReverseWords {
     /**
      * todo v2
      * 空字符串"" equals
+     *
      * @param s
      * @return
      */
     public String reverseWords(String s) {
-        if (s == null || "".equals(s)) {
+        if (s == null || s.length() == 0) {
             return s;
         }
-        String[] array = s.split(" ");
-        StringBuffer sb = new StringBuffer();
+        String[] list = s.split(" ");
+        String res = "";
+        for (int i = list.length - 1; i >= 0; --i) {
+            if (!"".equals(list[i])) {
+                res += list[i] + " ";
+            }
 
-        for (int i = array.length - 1; i >= 0; i--) {
-            if (!"".equals(array[i]))
-                sb.append(array[i]).append(" ");
         }
-        if (array.length > 0) {
-            sb.deleteCharAt(sb.length() - 1);
+        if (res.length() > 0) {
+            res = res.substring(0, res.length() - 1);
         }
-        return sb.toString();
+        return res;
     }
 
     public static void main(String[] args) {
         ReverseWords rw = new ReverseWords();
 
-        System.out.println(rw.reverseWords("  the  sky is   blue    "));
+        System.out.println(rw.reverseWords("  hello world!  "));
     }
 }

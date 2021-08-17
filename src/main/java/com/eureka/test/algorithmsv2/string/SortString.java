@@ -19,36 +19,45 @@ public class SortString {
      * @return
      */
     public String sortString(String s) {
-        int[] z = new int[26];
         char[] ch = s.toCharArray();
-        for (int i = 0; i < ch.length; i++) {
-            int t = ch[i] - 'a';
-            z[t] = z[t] + 1;
+        int[] in = new int[26];
+        int di = 0;
+        for (char c : ch) {
+            in[c - 'a']++;
         }
-        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 26; ++i) {
+            if (in[i] > 0) {
+                di++;
+            }
+        }
+        String res = "";
+        int l = 0, r = ch.length;
         int len = 0;
-        while (len < ch.length) {
-            for (int i = 0; i < z.length; i++) {
-                if (z[i] != 0) {
-                    len++;
-                    sb.append((char) (i + 'a'));
-                    z[i] = z[i] - 1;
+
+        while (l < r) {
+            for (int i = 0; i < 26; ++i) {
+                if (in[i] > 0 && len++ < di) {
+                    res += (char) (i + 'a');
+                    in[i]--;
+                    l++;
                 }
             }
-            for (int i = z.length - 1; i >= 0; i--) {
-                if (z[i] != 0) {
-                    len++;
-                    sb.append((char) (i + 'a'));
-                    z[i] = z[i] - 1;
+            len = 0;
+            for (int i = 25; i >= 0; --i) {
+                if (in[i] > 0 && len++ < di) {
+                    res += (char) (i + 'a');
+                    in[i]--;
+                    l++;
                 }
             }
+            len = 0;
         }
-        return sb.toString();
+        return res;
     }
 
     public static void main(String[] args) {
         SortString ss = new SortString();
-        String str= "HELLO";
+        String str = "HELLO";
         char[] ch = str.toCharArray();
 //        StringBuffer sb = new StringBuffer();
 //        for(int i = 0; i<ch.length; i++){
@@ -56,6 +65,6 @@ public class SortString {
 //        }
         System.out.println(String.valueOf(ch));
 //        System.out.println(sb.toString());
-//        System.out.println(ss.sortString("rta"));
+        System.out.println(ss.sortString("uhgeaseuktqexmxdiqqkfqdqfbnnnhyg"));
     }
 }

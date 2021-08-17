@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * <p>1128. 等价多米诺骨牌对的数量</p>
- * https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/
+ * https://leetcode-cn.com/problems /number-of-equivalent-domino-pairs/
  *
  * @Author : Eric
  * @Date: 2021-01-26 17:02

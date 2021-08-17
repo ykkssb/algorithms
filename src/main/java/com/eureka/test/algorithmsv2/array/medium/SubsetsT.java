@@ -1,4 +1,4 @@
-package com.eureka.test.algorithms.normal;
+package com.eureka.test.algorithmsv2.array.medium;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * @Author : Eric
  * @Date: 2020-06-05 17:58
  */
-public class Subsets {
+public class SubsetsT {
     /**
      * 思路一：
      * 集合的每个元素，都有可以选或不选，用二进制和位运算
@@ -56,9 +56,7 @@ public class Subsets {
     }
 
     public void back(int index, int len, int[] nums, List<Integer> list) {
-        if (list.size() == len) {
-            res.add(new ArrayList<>(list));
-        }
+        res.add(new ArrayList<>(list));
 
         for (int i = index; i < nums.length; i++) {
             list.add(nums[i]);
@@ -69,7 +67,7 @@ public class Subsets {
 
 
     public static void main(String[] args) {
-        Subsets s = new Subsets();
+        SubsetsT s = new SubsetsT();
         int[] nums = {1, 2, 3, 4};
         System.out.println(s.subsets(nums));
 //        System.out.println(((4 >> 0) & 1) == 1);

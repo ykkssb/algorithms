@@ -23,7 +23,7 @@ public class NodeTrans {
             //创建结点，每一个结点的左结点和右结点为null
             if (array[i] == NUL) {
                 list.add(null);
-            }else {
+            } else {
                 list.add(node);
             }
 
@@ -44,7 +44,8 @@ public class NodeTrans {
             // 判断最后一个根结  点：因为最后一个根结点可能没有右结点，所以单独拿出来处理
             int lastIndex = array.length / 2 - 1;
             // 左结点
-            list.get(lastIndex).left = list.get(lastIndex * 2 + 1);
+            if (list.get(lastIndex) != null)
+                list.get(lastIndex).left = list.get(lastIndex * 2 + 1);
             // 右结点，如果数组的长度为奇数才有右结点
             if (array.length % 2 == 1) {
                 list.get(lastIndex).right = list.get(lastIndex * 2 + 2);
@@ -59,8 +60,11 @@ public class NodeTrans {
     }
 
     public static void main(String[] args) {
-        int[] array = {3, 9, 20, 1000, 1000, 15, 7};
+        int[] array = {1, 1000, 2, 3};
         Node t = NodeTrans.transNode(array);
 
+       /* List<Integer> list = new ArrayList<>();
+        list.add(null);
+        list.get(0);*/
     }
 }

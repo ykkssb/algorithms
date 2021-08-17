@@ -9,7 +9,7 @@ package com.eureka.test.algorithmsv2.array;
  * @Date: 2021-03-25 00:29
  */
 public class SumOddLengthSubarrays {
-    // todo v3
+    // todo v8
 
     /**
      * odd奇数，even偶数
@@ -34,6 +34,16 @@ public class SumOddLengthSubarrays {
      * 前面奇数次，后面同样奇数次。
      *
      * l = i+1 , r = n-i;
+     *
+     * [1,4,2,5,3]
+     * 推算心得
+     * lj 左奇数 rj 右奇数 lo 左偶数 ro 又偶数 ,l = i+1, r= length-i;
+     * i=0 [1] lj =0 ， rj=随意  lo  = 1 ro = 3 -> lj= l/2, lo = (l+1) /2, ro= (r+1)/2  l = 1， r=5 case下需+1
+     * i=4 [3] lj= 随意, rj = 0  ,  -->  rj= r/2;` l =5, r= 1
+     *
+     *
+     *
+     *
      * @param arr
      * @return
      */

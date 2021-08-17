@@ -1,4 +1,4 @@
-package com.eureka.test.algorithms.normal;
+package com.eureka.test.algorithmsv2.array.medium;
 
 import java.util.*;
 

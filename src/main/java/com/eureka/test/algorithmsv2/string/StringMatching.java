@@ -11,20 +11,22 @@ import java.util.*;
  */
 public class StringMatching {
     public List<String> stringMatching(String[] words) {
-        Set<String> set = new HashSet<>();
-        for(int i=0;i<words.length;i++){
-            for(int j=0;j<words.length;j++){
-                if(i!=j && words[i].indexOf(words[j])>=0){
-                    set.add(words[j]);
+        List<String> list = new ArrayList<>();
+
+        for(int i=0;i<words.length; ++i){
+            String s = words[i];
+            for(int j=0;j<words.length;++j){
+                if(i!=j && words[j].contains(s)){
+                    list.add(s);
                 }
             }
         }
-        return new ArrayList<>(set);
+        return list;
     }
 
     public static void main(String[] args) {
         StringMatching s = new StringMatching();
-        String[] words = {"leetcode","et","code"};
+        String[] words = {"leetcoder","leetcode","od","hamlet","am"};
         System.out.println(s.stringMatching(words));
     }
 }

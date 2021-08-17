@@ -59,7 +59,8 @@ public class TreeNodeTrans {
     }
 
     public static void main(String[] args) {
-        int[] array = {3, 9, 20, 1000, 1000, 15, 7};
+//        int[] array = {3, 9, 20, 1000, 1000, 15, 7};
+        int[] array = {1, 1000, 2, 3};
         TreeNode t = TreeNodeTrans.transTreeNode(array);
 
     }

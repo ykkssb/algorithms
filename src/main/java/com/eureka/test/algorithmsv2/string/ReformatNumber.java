@@ -14,41 +14,37 @@ public class ReformatNumber {
         String s = "testu.email+alex@leetcode.com";
         System.out.println(s.substring(0,s.indexOf("@")));
         System.out.println(s.substring(s.indexOf("@")));
-//        ReformatNumber rn = new ReformatNumber();
-//        System.out.println(rn.reformatNumber("123 4-5678"));
+        ReformatNumber rn = new ReformatNumber();
+        System.out.println(rn.reformatNumber("123 4-56870"));
     }
 
     public String reformatNumber(String number) {
-        int n = 0, i = 0, r = 0;
-        char[] ch = number.toCharArray();
-        while (i < number.length()) {
-            if (ch[i] >= '0' && ch[i] <= '9') {
-                ch[n++] = ch[i];
-            }
-            i++;
+        String res = "";
+        String num  = "";
+        for(int i=0;i<number.length(); ++i){
+            if(isNum(number.charAt(i)))
+                num += number.charAt(i);
         }
-        StringBuilder sb = new StringBuilder();
-        n--;
-        while (r <= n) {
-            if ((n - r + 1) % 4 == 0 && n - r == 3) {
-                while (r < n - 1) {
-                    sb.append(ch[r++]);
-                }
-                sb.append("-");
-                while (r <= n) {
-                    sb.append(ch[r++]);
-                }
-            } else {
-                int next = r + 3;
-                for (int j = r; j < next && j <= n; j++) {
-                    sb.append(ch[r++]);
-                }
-                if(r<=n) {
-                    sb.append("-");
-                }
+        int len = num.length();
+        int c  = len %3;
+        for(int i=0;i< len ; i+=3){
+            res += num.charAt(i);
+            res += num.charAt(i+1) ;
+            if(c==1 &&  i+4 >= len){
+                i--;
+            }else if(i+2<len){
+                res += num.charAt(i+2);
             }
+            res+= "-";
         }
-        return sb.toString();
+        res = res.substring(0, res.length()-1);
+        return res;
+    }
+    public boolean isNum(int i){
+        if(i>=48 && i<=57){
+            return true;
+        }
+        return false;
     }
     // 1-2-3-4-5-6-7-8
     // 8-7-6-5-4-3-2-1

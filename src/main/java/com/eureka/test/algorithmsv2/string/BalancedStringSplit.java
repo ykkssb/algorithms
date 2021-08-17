@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class BalancedStringSplit {
     /**
-     * 贪心算法
+     * 贪心算法 todo v2
      *
      * @param s
      * @return

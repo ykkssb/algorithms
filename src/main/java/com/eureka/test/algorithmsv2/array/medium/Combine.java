@@ -1,4 +1,4 @@
-package com.eureka.test.algorithms.normal;
+package com.eureka.test.algorithmsv2.array.medium;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +26,13 @@ public class Combine {
         return res;
     }
 
+    /**
+     * todo v1
+     * @param n
+     * @param k
+     * @param index
+     * @param st
+     */
     public void fill(int n, int k, int index, Stack<Integer> st) {
 
         if (st.size() == k) {
