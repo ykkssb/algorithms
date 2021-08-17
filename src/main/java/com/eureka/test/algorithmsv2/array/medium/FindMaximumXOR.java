@@ -37,7 +37,6 @@ public class FindMaximumXOR {
             }
         }
         return res;
-
     }
 
     public static void main(String[] args) {
