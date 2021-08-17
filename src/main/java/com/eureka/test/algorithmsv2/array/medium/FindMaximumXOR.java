@@ -27,7 +27,6 @@ public class FindMaximumXOR {
             for(int n :nums){
                 set.add(mask & n);
             }
-
             int tmp = res | 1 << i;
             for(Integer se: set){
                 if (set.contains(se ^ tmp)) {
