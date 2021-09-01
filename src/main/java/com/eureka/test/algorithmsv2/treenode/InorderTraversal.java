@@ -38,25 +38,30 @@ public class InorderTraversal {
 
     /**
      * 迭代算法
-     * todo v3
+     * todo v3 -> v2
      *
      * @param root
      * @return
      */
     public List<Integer> inorderTraversalTw(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
+        List<Integer> res= new ArrayList<>();
+        if(root==null){
+            return res;
         }
         Deque<TreeNode> de = new LinkedList<>();
-        List<Integer> res = new ArrayList<>();
-        while (root != null || !de.isEmpty()) {
-            while (root != null) {
+        while(root!=null || !de.isEmpty()){
+            while(root!=null){
                 de.push(root);
                 root = root.left;
             }
             root = de.pop();
-            res.add(root.val);
-            root = root.right;
+            if(root.right!=null){
+                de.push(root);
+                root =root.right;
+            }else{
+                res.add(root.val);
+                root = null;
+            }
         }
         return res;
     }

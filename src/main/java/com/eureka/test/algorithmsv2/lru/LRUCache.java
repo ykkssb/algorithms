@@ -18,7 +18,7 @@ public class LRUCache extends LinkedHashMap<Integer, Integer> {
 
 
 /**
- * todo v3 LRU LinkedHashMap实现
+ * todo v4 LRU LinkedHashMap实现 removeEldestEntry
  *//*
     private int capacity;
 

@@ -31,6 +31,7 @@ public class TopKFrequent {
             }
         }
 
+        // Comparator<Integer>
         PriorityQueue<Integer> pq = new PriorityQueue<>(
                 new Comparator<Integer>() {
                     @Override
@@ -62,5 +63,7 @@ public class TopKFrequent {
         int[] n = {3,0,1,0};
         int k = 1;
         System.out.println(t.topKFrequent(n, k));
+        String l = "", r = "";
+        l.compareTo(r);
     }
 }

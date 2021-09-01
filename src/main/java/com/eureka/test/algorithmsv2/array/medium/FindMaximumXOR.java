@@ -13,7 +13,7 @@ import java.util.Set;
 public class FindMaximumXOR {
 
     /**
-     * todo v3
+     * todo v3 -> v4
      * 贪心算法
      * @param nums
      * @return
@@ -36,6 +36,7 @@ public class FindMaximumXOR {
             }
         }
         return res;
+
     }
 
     public static void main(String[] args) {

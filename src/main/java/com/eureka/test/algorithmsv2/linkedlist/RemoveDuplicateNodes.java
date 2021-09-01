@@ -13,7 +13,6 @@ import java.util.Set;
  * @Date: 2021-01-20 23:47
  */
 public class RemoveDuplicateNodes {
-    //todo set
     public ListNode removeDuplicateNodes(ListNode head) {
         if (head == null) {
             return head;
@@ -51,8 +50,7 @@ public class RemoveDuplicateNodes {
             ListNode t = l;
             while (t.next != null) {
                 if(t.next.val ==l.val){
-                    ListNode tmp = t.next.next;
-                    t.next = tmp;
+                    t.next = t.next.next;
                 }else {
                     t = t.next;
                 }

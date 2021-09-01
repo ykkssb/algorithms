@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class MergeTwoArray {
     /**
-     * todo v3
+     * todo v3 -> v2 ->v3
      *
      * @param nums1
      * @param m
@@ -20,11 +20,11 @@ public class MergeTwoArray {
      */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int len =m+n-1 , r= n-1 , l =m-1;
-        while(l>0 && r>0){
+        while(l>=0 && r>=0){
             nums1[len--] =  nums1[l] > nums2[r] ? nums1[l--] : nums2[r--];
 
         }
-        System.arraycopy(nums1, 0 ,nums2, 0, r);
+        System.arraycopy(nums2, 0 ,nums1, 0, r+1);
 
     }
 
@@ -45,10 +45,14 @@ public class MergeTwoArray {
 
     //1223 5
     public static void main(String[] args) {
-        int[] n1 = {2, 2, 3, 0, 0, 0};
-        int[] n2 = {1, 5, 6};
+        int[] n1 = {40, 41, 51, 0, 0, 0};
+        int[] n2 = {1, 2, 3};
 
         MergeTwoArray m = new MergeTwoArray();
         m.merge(n1, 3, n2, 3);
+
+        System.out.println("排序后:");
+        Arrays.stream(n1).forEach(System.out::println);
+
     }
 }

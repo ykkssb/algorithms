@@ -63,7 +63,7 @@ public class MultiSearch {
         int[] next = new int[l];
         next[0] = 0;
         int k = 0;
-        // next数组i从1开始
+        // next数组i从1开始 todo v7
         for (int i = 1; i < l; i++) {
 
             while (k != 0 && pat[k] != pat[i]) {
