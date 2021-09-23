@@ -20,8 +20,7 @@ public class QuickSort {
         if (low > high) {
             return;
         }
-        int l = low;
-        int r = high;
+        int l = low, r = high;
         int tmp = arr[l];
         while (l < r) {
             while (l < r && arr[r] >= tmp) {
@@ -35,12 +34,11 @@ public class QuickSort {
         }
         arr[l] = tmp;
         quickSort(arr, low, l - 1);
-        quickSort(arr, l + 1, high);
-
+        quickSort(arr, l+1, high);
     }
 
     public static void main(String[] args) {
-        int[] arr = {49, 38, 65, 97, 23, 22, 76, 0, -1, 22};
+        int[] arr = {49, 38, 97, 0, -1, 22};
         quickSort(arr, 0, arr.length - 1);
         System.out.println("排序后:");
         for (int i : arr) {

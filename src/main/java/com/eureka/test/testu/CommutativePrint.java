@@ -1,5 +1,6 @@
 package com.eureka.test.testu;
 
+import java.sql.Connection;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -19,11 +20,68 @@ public class CommutativePrint {
     public static void main(String[] args) throws InterruptedException {
 //        Num n = new Num(0);
         Object b = new Object();
+//        ReentrantLock l = new ReentrantLock();
+//        Condition c1 = l.newCondition();
+//        Condition c2 = l.newCondition();
+//        Condition c3 = l.newCondition();
         ReentrantLock l = new ReentrantLock();
-        Condition c1 = l.newCondition();
-        Condition c2 = l.newCondition();
-        Condition c3 = l.newCondition();
-        new Thread(() -> {
+        Condition c1  = l.newCondition();
+        Condition c2  = l.newCondition();
+        Condition c3  = l.newCondition();
+
+        new Thread(()->{
+            for(int i=0;i<3;++i){
+                l.lock();
+                System.out.println("a");
+                c2.signal();
+
+                try{
+                    Thread.sleep(1000);
+                    c1.await();
+                }catch(Exception e){
+
+                }finally {
+                    l.unlock();
+                }
+            }
+        },"a").start();
+
+        new Thread(
+                ()->{
+                    for(int i=0;i<3;++i){
+                        l.lock();
+                        System.out.println("b");
+                        c3.signal();
+
+                        try{
+                            Thread.sleep(1000);
+                            c2.await();
+                        }catch(Exception e){
+
+                        }finally{
+                            l.unlock();
+                        }
+                    }
+                }
+                ,"b").start();
+
+        new Thread(()->{
+            for(int i=0;i<3;++i){
+                l.lock();
+                System.out.println("c");
+                c1.signal();
+
+                try{
+                    Thread.sleep(1000);
+                    c3.await();
+                }catch(Exception e){
+
+                }finally{
+                    l.unlock();
+                }
+            }
+        },"c").start();
+      /*  new Thread(() -> {
             while (true) {
                 l.lock();
                 try {
@@ -75,7 +133,7 @@ public class CommutativePrint {
             }
         }
                 , "C").start();
+    }*/
+
     }
-
-
 }

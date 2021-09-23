@@ -36,13 +36,14 @@ public class MySqrt {
         }
         double a = 1, b = 1;
         while (true) {
-            b = a - (a * a * a - x) / (3 * a * a);
+            a = a - (a * a * a - x) / (3 * a * a);
             if (Math.abs(a - b) < 1e-7) {
                 break;
             }
-            a = b;
+            b = a;
+
         }
-        return a;
+        return (int) a;
     }
 
     /**
@@ -58,13 +59,13 @@ public class MySqrt {
         }
         double a = x, b = x;
         while (true) {
-            a = (a + x / a)/2;
+            a = (a + x / a) / 2;
             if (Math.abs(a - b) < 1e-7) {
                 break;
             }
             b = a;
         }
-        return (int)a;
+        return (int) b;
     }
 
 
