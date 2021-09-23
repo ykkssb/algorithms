@@ -20,5 +20,20 @@ public class ThreadPoolTest {
     public static void main(String[] args) {
         executor.execute(() -> {
         });
+        System.out.println("a");
+        System.out.println("b");
+        System.out.println("c");
+        System.out.println("d");
+        System.out.println("e");
+        System.out.println("f");
+        System.out.println("g");
+        System.out.println("z");
+        System.out.println("x");
+        System.out.println("c");
+
+        System.out.println("a1");
+        System.out.println("a2");
+        System.out.println("c1");
+        System.out.println("c2");
     }
 }
