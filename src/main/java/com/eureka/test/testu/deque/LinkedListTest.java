@@ -30,6 +30,7 @@ public class LinkedListTest {
         dq.add("f");
         dq.add("a");
         dq.add("b");
+        dq.add("c");
 
         while (!dq.isEmpty()) {
             System.out.println(dq.remove());
