@@ -35,5 +35,6 @@ public class LinkedListTest {
         while (!dq.isEmpty()) {
             System.out.println(dq.remove());
         }
+        dq.add("a");
     }
 }
