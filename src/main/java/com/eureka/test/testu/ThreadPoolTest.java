@@ -32,8 +32,6 @@ public class ThreadPoolTest {
         System.out.println("c");
 
         System.out.println("a1");
-        System.out.println("a2");
         System.out.println("c1");
-        System.out.println("c2");
     }
 }
