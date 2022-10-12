@@ -17,6 +17,7 @@ public class lifanggen {
         if (Math.abs(y * y * y - x) < 0.0000001) {
             return y;
         }
+        System.out.println( "1");
         return gen((x / y / y + 2 * y) / 3, x);
     }
 }
