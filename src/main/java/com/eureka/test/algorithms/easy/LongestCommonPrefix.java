@@ -50,8 +50,9 @@ public class LongestCommonPrefix {
         for (int i = 0; i < str.length(); i++) {
             Character c = str.charAt(i);
             for (int j = 1; j < n; j++) {
-                if (strs[j].charAt(i) != c && strs[j].length() >= i) {
-                    str = str.substring(0, i);
+                // 改动点
+                if (strs[j].length() == i || strs[j].charAt(i) != c ) {
+                   return str.substring(0, i);
                 }
             }
         }
@@ -59,7 +60,8 @@ public class LongestCommonPrefix {
     }
 
     public static void main(String[] args) {
-        String[] strs = {"flower", "flow", "flight"};
+//        String[] strs = {"flower", "flow", "flight"};
+            String[] strs = {"ab", "a"};
         System.out.println(longestCommonPrefixTwo(strs));
     }
 }
