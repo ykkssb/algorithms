@@ -21,11 +21,11 @@ public class CombinationSum2 {
 
         Arrays.sort(candidates);
         Deque<Integer> path = new ArrayDeque<>();
-        process(0, candidates, target, path, 0);
+        process(0, candidates, target, path);
         return ans;
     }
 
-    public void process(int start, int[] n, int target, Deque<Integer> path, int cur) {
+    public void process(int start, int[] n, int target, Deque<Integer> path) {
         if (target < 0) {
             return;
         } else if (target == 0) {
@@ -34,12 +34,12 @@ public class CombinationSum2 {
             for (int i = start; i < n.length; i++) {
 
                 // cur 代码层级
-                if (i > cur && n[i] == n[i - 1]) {
+                if (i > start && n[i] == n[i - 1]) {
                     continue;
 
                 }
                 path.add(n[i]);
-                process(i + 1, n, target - n[i], path, i + 1);
+                process(i + 1, n, target - n[i], path);
                 path.removeLast();
             }
         }
@@ -53,7 +53,7 @@ public class CombinationSum2 {
      */
     public static void main(String[] args) {
         CombinationSum2 c = new CombinationSum2();
-        int[] n = {1, 1, 2, 2, 6, 7, 7, 10};
+        int[] n = {1, 1,1, 2,5,6,7};
         System.out.println((c.combinationSum2(n, 8)).toString());
     }
 }

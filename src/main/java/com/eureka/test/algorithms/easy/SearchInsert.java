@@ -22,26 +22,24 @@ public class SearchInsert {
     }
 
     public static int get(int[] nums, int target) {
-        int len = nums.length;
-        int l = 0, r = len;
-        int mid = l + (r - l) / 2;
-        while (l < r) {
-            if (nums[mid] == target) {
+        int n =nums.length;
+        int l =0,r=n-1;
+        while(l<=r){
+            int mid = (l+r)/2;
+            if(nums[mid]==target){
                 return mid;
-            } else if (target < nums[mid]) {
-                r = mid;
-            } else {
-                l = mid + 1;
+            }else if(nums[mid]<target){
+                l = mid+1;
+            }else{
+                r = mid-1;
             }
-            mid = l + (r - l) / 2;
         }
-
-        return mid;
+        return l;
     }
 
     public static void main(String[] args) {
-        int[] n = {1, 3, 5, 7, 9};
-        int target = 10;
+        int[] n = {1, 3, 5,6};
+        int target = 2;
         System.out.println(get(n, target));
 //        System.out.println(searchInsert(n, target));
     }
