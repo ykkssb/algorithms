@@ -3,6 +3,7 @@ package com.eureka.test.algorithms.normal;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -24,13 +25,19 @@ public class LengthOfLongestSubstring {
      * @return
      */
     public static int lengthOfLongestSubstring(String s) {
+        Map<Character,Integer> map = new HashMap<>();
+        int l = 0,r = s.length();
         int ans = 0;
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j < s.length(); j++) {
-                if (allUnique(s, i, j)) {
-                    ans = Math.max(ans, j - i);
-                }
+        for(int i=0;i<r;i++){
+            char c= s.charAt(i);
+            if(map.containsKey(c)){
+                int index = map.get(c);
+                ans = Math.max(ans,l-index);
+                map.put(c, i);
+            }else{
+                map.put(c, i);
             }
+            l++;
         }
         return ans;
     }
@@ -109,8 +116,8 @@ public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
 //        String s = "bbbbb";
-        String s = "abcabgabc";
-        System.out.println(lengthOfLongestSubstringThree(s));
+        String s = "pwwkew";
+        System.out.println(lengthOfLongestSubstringTwo(s));
 //        System.out.println(lengthOfLongestSubstringTwo(s));
 
     }

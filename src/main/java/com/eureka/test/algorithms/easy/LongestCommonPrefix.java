@@ -51,6 +51,10 @@ public class LongestCommonPrefix {
             Character c = str.charAt(i);
             for (int j = 1; j < n; j++) {
                 // 改动点
+                // 从第一个字符串的0位开始比较  第 i 位不同就是最长
+                // abc
+                // ab
+                // a
                 if (strs[j].length() == i || strs[j].charAt(i) != c ) {
                    return str.substring(0, i);
                 }
