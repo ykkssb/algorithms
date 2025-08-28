@@ -2,6 +2,8 @@ package com.eureka.test.algorithms.easy;
 
 import com.google.common.collect.Maps;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -31,23 +33,24 @@ public class IsValidBrackets {
      * @return
      */
     public Boolean isValid(String s) {
-        Stack<Character> stack = new Stack<Character>();
-        int n = s.length();
-        for (int i = 0; i < n; i++) {
-            Character c = s.charAt(i);
-
-            if (map.containsKey(c)) {
-                Character top = stack.isEmpty() ? 'A' : stack.pop();
-
-                if (!top.equals(map.get(c))) {
-                    return false;
-                }
-            } else {
-                stack.push(c);
+        Deque<Character> list = new ArrayDeque<>();
+        for(int i =0 ;i<s.length();i++)      {
+            char c  = s.charAt(i);
+            if(c=='('||c=='['|| c=='{'){
+                list.add(c);
+            }else if(c==')' && (list.isEmpty() || list.peekLast()!='(')){
+                return false;
+            }else if(c==']' && (list.isEmpty() || list.peekLast()!='[')){
+                return false;
+            }else if(c=='}' && (list.isEmpty() || list.peekLast()!='{')){
+                return false;
+            }else{
+                list.removeLast();
             }
 
+
         }
-        return stack.isEmpty();
+        return true && list.isEmpty();
     }
 
     public static void main(String[] args) {

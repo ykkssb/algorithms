@@ -27,6 +27,9 @@ public class KMPSearch {
         return false;
     }
 
+
+
+
     public int[] next(char[] ch){
         int[] next = new int[ch.length];
         int j=0;
@@ -49,6 +52,21 @@ public class KMPSearch {
 
 //        System.out.println(target.charAt(0)=='1');
 
-            System.out.println(kmp.multiSearch("abcdabca", "abcde"));
+            System.out.println(kmp.multiSearch("mississipa", "issip"));
+    }
+
+    int[] kmp(char[] ch){
+            int[] next =new int[ch.length];
+            int j=0;
+            for (int i=1;i<ch.length;i++){
+                while(j>0 &&ch[j]!=ch[i]){
+                    j = next[j-1];
+                }
+                if(ch[i]==ch[j]){
+                    j++;
+                }
+                next[i] = j;
+            }
+            return next;
     }
 }
