@@ -5,6 +5,7 @@ package com.eureka.test.algorithms.easy;
  * https://leetcode-cn.com/problems/implement-strstr/solution/zhe-ke-neng-shi-quan-wang-zui-xi-de-kmp-8zl57/
  * https://www.bilibili.com/video/av3246487?from=search&seid=2688728712457575436
  * https://www.bilibili.com/video/BV1iJ411u74L/?spm_id_from=333.788.recommend_more_video.0
+ *  找出字符串中第一个匹配项的下标
  *
  * @Author : Eric
  * @Date: 2020-03-26 19:15
@@ -60,58 +61,44 @@ public class StrStr {
      */
     public int strStrTwo(String haystack, String needle) {
 
-        if (needle.length() == 0) {
-            return 0;
-        }
-        if (haystack.length() == 0) {
-            return -1;
-        }
-        return kmp(haystack.toCharArray(), haystack.length(), needle.toCharArray(), needle.length());
-    }
+        int l = haystack.length   ();
+        int r = needle    .length();
+        char[] h = haystack   .toCharArray();
+        char[] n =needle.toCharArray();
+        int[] next = kmp(n);
 
-    // bcbcbcbcbea
-    // bcbcbea
-    // 0012300
-    private int kmp(char[] lc, int l, char[] rc, int r) {
-        int[] next = next(rc, r);
-        int j = 0;
-        for (int i = 0; i < l; i++) {
-
-
-            while (j != 0 && lc[i] != rc[j]) {
-                j = next[j - 1];
-                if (i - j + r > l) {
-                    return -1;
-                }
+        for(int i=0,j=0;i<l;i++){
+            //String l = "bcbcbcbcbea";
+            // String n = "bcbcbea"; 0012300
+            while(j>0 && h[i]!=n[j]){
+                j = next[j-1];
             }
-            if (lc[i] == rc[j]) {
+            if(h[i]==n[j]){
                 j++;
             }
-            if (j == r) {
-                return i - j + 1;
+            if(j==r){
+                return i-r+1;
             }
+
         }
         return -1;
     }
 
+
     //  aabaabaaa
     //  010123452
-    public int[] next(char[] needle, int r) {
-
-        int[] next = new int[r];
-        next[0] = 0;
-        int k = next[0];
-        for (int i = 1; i < r; i++) {
-
-            while (k != 0 && needle[k] != needle[i]) {
-                k = next[k - 1];
+    // bcbcbea
+    // 0012300
+    public int[] kmp(char[] ch){
+        int[] next  = new int[ch.length];
+        for(int i =1,j=0; i<ch.length   ;i++){
+            while(j>0 && ch[i]!=ch[j]){
+                j = next[j-1];
             }
-
-            if (needle[k] == needle[i]) {
-                k++;
+            if(ch[i]==ch[j]){
+                j++;
             }
-
-            next[i] = k;
+            next[i] = j;
         }
         return next;
     }
