@@ -110,15 +110,34 @@ public class LongestPalindrome {
     }
 
     /**
-     * 马拉车算法mancher
+     * 动态规划 和回文子串类似
      *
      * @param s
      */
     public static String longestPalindromeFour(String s) {
         int n = s.length();
-        String ans = "";
-
-        return ans;
+        int maxLen =0 ,ml=0 ,mr=0;
+        boolean[][] b = new boolean[n][n];
+        for(int i=n-1;i>=0;i--) {
+            b[i][i] = true;
+            for(int j=i+1;j<n;j++){
+                if(s.charAt(i)== s.charAt(j)){
+                    if(j==i+1){
+                        b[i][j] = true;
+                    }else{
+                        b[i][j] = b[i+1][j-1];
+                    }
+                    if(b[i][j]){
+                        if(j-i+1> maxLen){
+                            ml = i;
+                            mr = j;
+                        }
+                        maxLen =  Math.max(j-i+1, maxLen);
+                    }
+                }
+            }
+        }
+        return s.substring(ml, mr+1);
     }
 
 
@@ -126,6 +145,6 @@ public class LongestPalindrome {
         String abc = "abba";
 //        System.out.println(abc.substring(2, 6));
 //        System.out.println(longestPalindromeTwo(abc));‰
-        System.out.println(longestPalindromeThree(abc));
+        System.out.println(longestPalindromeFour(abc));
     }
 }
