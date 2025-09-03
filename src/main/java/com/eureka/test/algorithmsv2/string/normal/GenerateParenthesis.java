@@ -89,6 +89,7 @@ public class GenerateParenthesis {
 
 
     class Node {
+
         private String res;
 
         private int left;
@@ -102,10 +103,33 @@ public class GenerateParenthesis {
         }
     }
 
+    List<String> ans = new ArrayList<>();
+
+    public List<String> generateParenthesisThree(int n) {
+        dfs("", n, 0, 0);
+        return ans;
+    }
+
+    void dfs(String s, int n, int l, int r) {
+        if (r == n) {
+            ans.add(s);
+            return;
+        }
+        if (l < n) {
+            dfs(s+"(", n, l + 1, r);
+        }
+        if (r < l) {
+            dfs(s+")", n, l, r + 1);
+        }
+    }
+
     public static void main(String[] args) {
         GenerateParenthesis gp = new GenerateParenthesis();
-        System.out.println(gp.generateParenthesisTwo(2));
-
+        System.out.println(gp.generateParenthesis(3));
+//        String s = "abcd";
+//        System.out.println(s.substring(s.length()-1));
+//        System.out.println(s.substring(0, s.length()-1));
+//        System.out.println(s.substring(0, s.length()-1));
     }
 
 }

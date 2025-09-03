@@ -1,4 +1,4 @@
-package com.eureka.test.algorithmsv2.stack;
+package com.eureka.test.algorithmsv2.string;
 
 /**
  * https://leetcode.cn/problems/longest-palindromic-subsequence/

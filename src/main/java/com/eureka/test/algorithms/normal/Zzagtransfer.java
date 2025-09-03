@@ -16,36 +16,34 @@ public class Zzagtransfer {
      * 方法一：按行排序
      * 思路
      * 通过从左向右迭代字符串，我们可以轻松地确定字符位于 Z 字形图案中的哪一行。
-     *
+     *  牛逼
      * @param s
      * @param numRows
      * @return
      */
     public static String convert(String s, int numRows) {
-        if (numRows == 1) {
+        if(numRows==1){
             return s;
         }
-        int curNum = 0;
-        boolean down = false;
-        List<StringBuffer> rows = new ArrayList<>();
-        for (int i = 0; i < Math.min(numRows, s.length()); i++) {
-            rows.add(new StringBuffer());
+        int n  =s.length();
+        List<StringBuffer> list =new ArrayList<>();
+        for(int i=0;i<numRows;i++) {
+            list.add(new StringBuffer());
         }
-
-        for (Character c : s.toCharArray()) {
-            rows.get(curNum).append(c);
-
-            if (curNum == 0 || curNum == numRows - 1) {
-                down = !down;
+        int a = 0, flag=-1;
+        for(int i=0;i<s.length();i++){
+            list.get(a).append(s.charAt(i));
+            if(a==0||a==numRows-1){
+                flag= -flag;
             }
-            curNum += down ? 1 : -1;
+            a+=flag;
+        }
+        StringBuilder ans = new StringBuilder();
+        for(StringBuffer ss: list) {
+            ans.append(ss);
         }
 
-        StringBuffer ret = new StringBuffer();
-        for (StringBuffer sb : rows) {
-            ret.append(sb);
-        }
-        return ret.toString();
+        return ans.toString();
     }
 
 
@@ -64,30 +62,49 @@ public class Zzagtransfer {
      * @param numRows
      * @return
      */
+
+    // 辅助数组 250902
     public static String convertTwo(String s, int numRows) {
-        int n = s.length();
-        if (numRows == n) {
+        if(numRows==1){
             return s;
         }
+        int n  =s.length();
+        int len=1, r=numRows-1;
+        String ans ="";
+        int[][] nn = new int[numRows][n];
+        for(int i =0;i<n;i++){
+            boolean b = true;
+            for(int j =0;j<numRows;j++){
+                if(i% (numRows-1)==0){
+                    nn[j][i] = len++;
+                }else{
 
-        StringBuffer sb = new StringBuffer();
-        int c = 2 * numRows - 2;
-        for (int i = 0; i < numRows; i++) {
-            for (int j = 0; j < n - i; j += c) {
-                sb.append(s.charAt(i + j));
-                if (i != 0 && i != numRows - 1 && j + c - i < n) {
-                    sb.append(s.charAt(j + c - i));
+                    if(r>0 && b){
+                        b =false;
+                        r--;
+                        nn[r][i] = len++;
+                        if(r==1){
+                            r = numRows-1;
+                        }
+                    }
                 }
-
             }
         }
 
-        return sb.toString();
+        for(int j= 0;j<numRows;j++){
+            for(int i=0;i<n;i++){
+                int a = nn[j][i];
+                if(a>0 && a<=s.length()){
+                    ans+=s.charAt(a-1);
+                }
+            }
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
-        String s = "leetcodeleetcode";
-//        String s = "LEETCODEISHIRING";
+//        String s = "leetcodeleetcode";
+        String s = "PAYPALISHIRING";
         System.out.println(convert(s, 4));
 
     }
