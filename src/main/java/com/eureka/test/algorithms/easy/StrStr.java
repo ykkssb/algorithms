@@ -107,8 +107,8 @@ public class StrStr {
     public static void main(String[] args) {
 
         StrStr st = new StrStr();
-        String l = "bcbcbcbcbea";
-        String n = "bcbcbea";
+        String l = "ababbbabbaba";
+        String n = "ababbbabbaba";
 //        String n = "aabaabaaa";
 //        System.out.println(st.next(n.toCharArray(), n.length()));
         System.out.println(st.strStrTwo(l, n));

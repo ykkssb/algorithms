@@ -32,7 +32,6 @@ public class IsPalindrome {
     //abba
     public static boolean isP(String s, int i, int j) {
         int L = i, R = j;
-
         while (L >= 0 && R <= s.length()) {
             if (s.charAt(L) != s.charAt(R)) {
                 return false;
