@@ -15,7 +15,7 @@ import java.util.Map;
 public class CopyRandomList {
 
     /**
-     * todo 哈希表
+     * todo 哈希表 看了就懂思路重要
      *
      * @param head
      * @return

@@ -1,6 +1,7 @@
 package com.eureka.test.algorithms.easy;
 
 import com.eureka.test.container.ListNode;
+import java.util.List;
 
 /**
  * <p>链表反转</p>
@@ -13,12 +14,13 @@ public class ReverseList {
 
     // 1 - 4 - 2 -null
     public static ListNode reverseList(ListNode head) {
-        ListNode cur = null, pre =head;
+        ListNode pre = head;
+        ListNode cur= null;
         while(pre!=null){
             ListNode tmp = pre.next;
             pre.next = cur;
             cur = pre;
-            pre =tmp;
+            pre = tmp;
         }
         return cur;
     }
