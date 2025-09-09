@@ -1,5 +1,8 @@
 package com.eureka.test.algorithmsv2.string;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * <p>最长回文子串</p>
  * <p>
@@ -154,5 +157,33 @@ public class LongestPalindrome {
 //        System.out.println(abc.substring(2, 6));
 //        System.out.println(longestPalindromeTwo(abc));‰
         System.out.println(longestPalindromeFour(abc));
+        int num =3499;
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1,"I");
+        map.put(5, "V");
+        map.put(10, "X");
+        map.put(50,"L");
+        map.put(100,"C");
+        map.put(500,"D");
+        map.put(1000,"M");
+        map.put(4, "IV");
+        map.put(9,"IX");
+        map.put(40, "XL");
+        map.put(90, "XC");
+        map.put(400,"CD");
+        map.put(900,"CM");
+        StringBuilder ans = new StringBuilder();
+        double t = num;
+        while (num>0){
+            double a = t/1000;
+            if(a>1){
+                for(int i=0;i<=a;i++){
+                    ans.append("M");
+                }
+            }else if(a>0.9){
+
+            }
+        }
+
     }
 }

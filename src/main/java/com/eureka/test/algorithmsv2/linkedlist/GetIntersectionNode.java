@@ -11,19 +11,62 @@ import com.eureka.test.container.ListNode;
  */
 public class GetIntersectionNode {
     /**
-     * todo v2
+     * todo v3
      *
      * @param headA
      * @param headB
      * @return
      */
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode l = headA, r = headB;
-        while (l != r) {
-            l = l != null ? l.next : headB;
-            r = r != null ? r.next : headA;
+//        ListNode l = headA, r = headB;
+//        while (l != r) {
+//            l = l != null ? l.next : headB;
+//            r = r != null ? r.next : headA;
+//        }
+//        return l;
+        ListNode a= headA, b = headB;
+        ListNode  c= a, d= b;
+        while(a!=null){
+            a = a.next;
+            if(a.next==null){
+                a.next = headB;
+                break;
+            }
         }
-        return l;
+        while(b!=null){
+            b = b.next;
+            if(b.next==null){
+                b.next = headA;
+                break;
+            }
+        }
+        while(c!=null && d!=null){
+            c= c.next;
+            d = d.next;
+            if(c==d){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        ListNode l = new ListNode();
+        l.next = new ListNode(1);
+        l.next.next = new ListNode(2);
+
+        ListNode r = new ListNode(4);
+        r.next = new ListNode(5);
+
+        ListNode a = new ListNode(7);
+        a.next = new ListNode(8);
+        GetIntersectionNode g = new GetIntersectionNode();
+
+        l.next.next.next = a;
+        r.next.next = a;
+
+        System.out.println(g.getIntersectionNode(l, r));
+
     }
 
 }
