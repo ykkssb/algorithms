@@ -42,6 +42,9 @@ public class BuildTreeRight {
         BuildTreeLeft bt = new BuildTreeLeft();
         int[] a = {9, 3, 15, 20, 7};
         int[] b = {9,15, 7 ,20 , 3};
-        System.out.println(bt.buildTree(a,b));
+//        System.out.println(bt.buildTree(a,b));
+
+        System.out.println((char)('a'+1));
+
     }
 }
