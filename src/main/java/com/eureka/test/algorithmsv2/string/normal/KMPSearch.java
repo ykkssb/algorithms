@@ -9,21 +9,23 @@ package com.eureka.test.algorithmsv2.string.normal;
 public class KMPSearch {
     public boolean multiSearch(String big, String smalls) {
 
-        char[] b = big.toCharArray();
-        char[] s = smalls.toCharArray();
+        char[] a = big.toCharArray();
+        char[] b= smalls.toCharArray();
         int[] next = next(b);
         int j =0;
-        for(int i=0;i<b.length;++i){
-            while(j>0 && b[i]!=s[j]){
+        for(int i=0;i<a.length;i++){
+            while(j>0 && a[i]!=b[j]){
                 j = next[j-1];
             }
-            if(b[i] == s[j]){
+            if(a[i]==b[j]){
                 j++;
-                if(j==s.length){
-                    return true;
-                }
             }
+            if(j==b.length){
+                return true;
+            }
+
         }
+
         return false;
     }
 
@@ -32,15 +34,15 @@ public class KMPSearch {
 
     public int[] next(char[] ch){
         int[] next = new int[ch.length];
-        int j=0;
-        for(int i=1;i<ch.length;++i){
-            while(j>0 && ch[i]!= ch[j]){
+        int j = 0;
+        for(int i=1;i<ch.length;i++){
+            while (j>0 && ch[i] != ch[j]) {
                 j = next[j-1];
             }
-            if(ch[i] == ch[j]){
+            if(ch[i]==ch[j]){
                 j++;
             }
-            next[i] = j;
+            next[i]= j;
         }
         return next;
     }
@@ -52,7 +54,7 @@ public class KMPSearch {
 
 //        System.out.println(target.charAt(0)=='1');
 
-            System.out.println(kmp.multiSearch("mississipa", "issip"));
+            System.out.println(kmp.multiSearch("mississipa", "issia"));
     }
 
     int[] kmp(char[] ch){

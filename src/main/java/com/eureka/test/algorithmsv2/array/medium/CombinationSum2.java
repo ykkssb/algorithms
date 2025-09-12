@@ -34,6 +34,7 @@ public class CombinationSum2 {
             for (int i = start; i < n.length; i++) {
 
                 // cur 代码层级
+                // 1 1 2 5 过滤掉第二个125
                 if (i > start && n[i] == n[i - 1]) {
                     continue;
 

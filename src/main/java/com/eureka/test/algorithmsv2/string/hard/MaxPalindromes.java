@@ -32,6 +32,7 @@ public class MaxPalindromes {
          *           则更新 dp[i] = max(dp[i], dp[j] + 1)。
          * 4. 结果提取：最终结果存储在 dp[n] 中，其中 n 是字符串的长度。
          *
+         *  250912
          */
         int[]f = new int[n+1];
         for(int i=1;i<=n;i++){
@@ -47,8 +48,8 @@ public class MaxPalindromes {
 
     public static void main(String[] args) {
         MaxPalindromes mp = new MaxPalindromes();
-//        System.out.println(mp.maxPalindromes("abaccdbbd", 3));
-        System.out.println(mp.maxPalindromes("fttfjofpnpfydwdwdnns", 2));
+        System.out.println(mp.maxPalindromes("abaccdbbd", 3));
+//        System.out.println(mp.maxPalindromes("fttfjofpnpfydwdwdnns", 2));
     }
 }
 

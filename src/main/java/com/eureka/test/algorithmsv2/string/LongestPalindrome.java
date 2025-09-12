@@ -136,7 +136,8 @@ public class LongestPalindrome {
                         b[i][j] = b[i+1][j-1];
                     }
                     /**
-                     * todo V2 两天忘了怎么计算最长
+                     * todo V3 两天忘了怎么计算最长
+                     * 250912 忘了
                      */
                     if(b[i][j]){
                         if(j-i+1> maxLen){
