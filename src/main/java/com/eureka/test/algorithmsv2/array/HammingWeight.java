@@ -11,6 +11,7 @@ public class HammingWeight {
 
     /**
      * 方法一：循环检查二进制位
+     * todo
      *
      * @param n
      * @return
@@ -27,6 +28,7 @@ public class HammingWeight {
 
     /**
      * 方法二：位运算优化
+     * todo
      *
      * @param n
      */
