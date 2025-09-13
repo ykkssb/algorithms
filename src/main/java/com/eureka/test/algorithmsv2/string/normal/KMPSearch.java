@@ -54,7 +54,7 @@ public class KMPSearch {
 
 //        System.out.println(target.charAt(0)=='1');
 
-            System.out.println(kmp.multiSearch("mississipa", "issia"));
+            System.out.println(kmp.multiSearch("aacecaaa", "aaace"));
     }
 
     int[] kmp(char[] ch){

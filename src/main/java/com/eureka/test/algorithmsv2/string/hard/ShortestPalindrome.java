@@ -10,19 +10,51 @@ package com.eureka.test.algorithmsv2.string.hard;
  */
 public class ShortestPalindrome {
 
+    // 常规 kmp 写法
+    public String shortestPalindrome(String s) {
+        int n = s.length();
+        if (n < 2) {
+            return s;
+        }
+        int i = 1, j = 0;
+        int[] next = new int[n / 2];
+        next[0] = 0;
+        // j< next长度 next代表回文左边
+        for (i = 1; i < next.length; i++) {
+            while (j > 0 && s.charAt(i) != s.charAt(j)) {
+                j = next[j - 1];
+            }
+            if (s.charAt(i) == s.charAt(j)) {
+                j++;
+            }
+            next[i] = j;
+        }
+        for (i = 0, j = n - 1; i < j; ) {
+            while (i > 0 && s.charAt(i) != s.charAt(j)) {
+                i = next[i - 1];
+            }
+            if (s.charAt(i) == s.charAt(j)) {
+                i++;
+                j--;
+            } else {
+                j--;
+            }
+        }
+        int len = i + j + 1;
+        if (len == n) {
+            return s;
+        }
 
+        return new StringBuffer(s.substring(len)).reverse().append(s).toString();
+    }
 
     /**
      * https://leetcode.cn/problems/shortest-palindrome/solutions/1/shou-hua-tu-jie-cong-jian-dan-de-bao-li-fa-xiang-d/
      * <p>
-     * 你们真的了解kmp的理念吗？这个寻找最长前缀回文子串的过程中不需要用到后半段的next数组，
-     * 而且除了s字符串前半段的next数组信息会被使用来寻找最长前缀回文子串之外，其它的next数组信息全部是多余的计算
-     * ，因为遍历比对的过程根本不会出现需要在s后半段回退的操作，只要能到达s的中间部分，最长前缀回文子串就已经找到了
-     * （因为最长前缀回文子串的长度根本不可能超过s的全长，所以比对到一半的时候，已经得到了最长的前缀回文子串），
-     * 下面是18行 2ms 100%beat无冗余比对的解，供想真的深入了解kmp逻辑的友友交流。
-     * next数组的空间只需要保持原字符串的一半信息就已经够指针回退使用了。
-     * 另外，不需要将s反序再append到末尾，然后比对到最后一位才找到最长的前缀回文。
-     * 在原字符串上直接比对，到中间两个指针相遇的时候，就已经找到最长前缀回文了，此时可以直接返回结果。
+     * 你们真的了解kmp的理念吗？这个寻找最长前缀回文子串的过程中不需要用到后半段的next数组， 而且除了s字符串前半段的next数组信息会被使用来寻找最长前缀回文子串之外，其它的next数组信息全部是多余的计算
+     * ，因为遍历比对的过程根本不会出现需要在s后半段回退的操作，只要能到达s的中间部分，最长前缀回文子串就已经找到了 （因为最长前缀回文子串的长度根本不可能超过s的全长，所以比对到一半的时候，已经得到了最长的前缀回文子串），
+     * 下面是18行 2ms 100%beat无冗余比对的解，供想真的深入了解kmp逻辑的友友交流。 next数组的空间只需要保持原字符串的一半信息就已经够指针回退使用了。
+     * 另外，不需要将s反序再append到末尾，然后比对到最后一位才找到最长的前缀回文。 在原字符串上直接比对，到中间两个指针相遇的时候，就已经找到最长前缀回文了，此时可以直接返回结果。
      * <p>
      * kmp主要的理念是减少重复比对的执行，所以保留有限的信息完全避免重复比对就已经足够了。
      *
@@ -32,10 +64,10 @@ public class ShortestPalindrome {
     public String shortestPalindromeTwo(String s) {
 
         int n = s.length();
-        if(n<2){
+        if (n < 2) {
             return s;
         }
-        int i =-1, j=0;
+        int i = -1, j = 0;
         int[] next = new int[n / 2];
         next[0] = -1;
         while (j < next.length - 1) {
@@ -44,7 +76,7 @@ public class ShortestPalindrome {
                  *  为啥先++i j是-1代表# i->1 j->0 否则 i和 j 一直相等
                  */
                 next[++j] = ++i;
-            }else {
+            } else {
                 i = next[i];
             }
         }
@@ -52,7 +84,7 @@ public class ShortestPalindrome {
             if (i == -1 || s.charAt(i) == s.charAt(j)) {
                 i++;
                 j--;
-            }else{
+            } else {
                 i = next[i];
             }
         }
@@ -60,7 +92,6 @@ public class ShortestPalindrome {
         if (len == n) {
             return s;
         }
-
 
         return new StringBuffer(s.substring(len)).reverse().append(s).toString();
     }
