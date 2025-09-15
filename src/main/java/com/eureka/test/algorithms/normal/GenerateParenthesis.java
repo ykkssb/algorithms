@@ -15,38 +15,41 @@ import java.util.Queue;
 public class GenerateParenthesis {
 
     /**
-     * 方法二：回溯法
-     * 深度优先遍历(加、减两种方式)
+     * 方法二：回溯法 深度优先遍历(加、减两种方式)
      *
      * @param n
      * @return
      */
+    List<String> ans = new ArrayList<>();
+
     public List<String> generateParenthesis(int n) {
-        List<String> ans = new ArrayList<>();
-        if (n == 0) {
-            return ans;
-        }
-        df("", 0, 0, ans, n);
+        dfs("", n, n);
         return ans;
     }
 
-    public void df(String s, int b, int e, List<String> ans, int max) {
-        if (s.length() == 2 * max) {
+    void dfs(String s, int l, int r) {
+
+        if (l == 0 && r == 0) {
             ans.add(s);
             return;
         }
-
-        if (b < max) {
-            df(s + "(", b + 1, e, ans, max);
+        if (l > r) {
+            return;
         }
-        if (e < b) {
-            df(s + ")", b, e + 1, ans, max);
 
+        if (l > 0) {
+            dfs(s + "(", l - 1, r);
         }
+
+        if (r > 0) {
+            dfs(s + ")", l, r - 1);
+        }
+
     }
 
 
     class Node {
+
         private String res;
 
         private int left;
