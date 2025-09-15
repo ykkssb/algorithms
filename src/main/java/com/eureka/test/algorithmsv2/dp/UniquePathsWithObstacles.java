@@ -1,4 +1,4 @@
-package com.eureka.test.algorithms.normal;
+package com.eureka.test.algorithmsv2.dp;
 
 /**
  * <p>不同路径二</p>
@@ -20,36 +20,33 @@ public class UniquePathsWithObstacles {
      * @return
      */
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int row = obstacleGrid.length;
-        int col = obstacleGrid[0].length;
+        int m = obstacleGrid.length;
+        int n = obstacleGrid[0].length;
+        int[][] b= new int[m][n];
 
-
-        int[][] dp = new int[row][col];
-        dp[0][0] = obstacleGrid[0][0] == 1 ? 0 : 1;
-        if (dp[0][0] == 0) {
+        if(obstacleGrid[0][0] ==1){
             return 0;
         }
-
-        for (int i = 1; i < col; i++) {
-            if (obstacleGrid[0][i] != 1) {
-                dp[0][i] = dp[0][i - 1];
+        b[0][0] = 1;
+        // 0 1 00 中间有障碍导致后续都是0
+        for(int i=1;i<m;i++){
+            if(obstacleGrid[i][0]!=1){
+                b[i][0] = b[i-1][0];
             }
         }
-
-        for (int i = 1; i < row; i++) {
-            if (obstacleGrid[i][0] != 1) {
-                dp[i][0] = dp[i - 1][0];
+        for(int i=1;i<n;i++){
+            if(obstacleGrid[0][i]!=1){
+                b[0][i] = b[0][i-1];
             }
         }
-
-        for (int i = 1; i < row; i++) {
-            for (int j = 1; j < col; j++) {
-                if (obstacleGrid[i][j] != 1) {
-                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+                if(obstacleGrid[i][j]!=1){
+                    b[i][j] = b[i-1][j]+ b[i][j-1];
                 }
             }
         }
-        return dp[row - 1][col - 1];
+        return b[m-1][n-1];
     }
 
     public static void main(String[] args) {

@@ -1,7 +1,8 @@
 package com.eureka.test.algorithms.easy;
 
 /**
- * <p>最大子序和</p>
+ * https://leetcode.cn/problems/maximum-subarray/description/?envType=problem-list-v2&envId=dynamic-programming
+ * <p>最大子数组和</p>
  *
  * @Author : Eric
  * @Date: 2020-04-23 20:08
@@ -10,6 +11,7 @@ public class MaxSubArray {
 
     /**
      * 方法二：贪心
+     * todo 250915
      *
      * @param nums
      * @return
@@ -50,10 +52,9 @@ public class MaxSubArray {
 
     public static void main(String[] args) {
         MaxSubArray a = new MaxSubArray();
-        int[] nums = {-2, 1, -3, 4, 1, 5, -6};
-//        System.out.println(a.maxSubArrayTwo(nums));
-        System.out.println(a.maxSubArray(nums));
-
+        int[] nums = {-2, 1, -3, 4, -1, -1, 2, 5, -6};
+        System.out.println(a.maxSubArrayTwo(nums));
+//        System.out.println(a.maxSubArray(nums));
 
     }
 }
