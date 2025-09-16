@@ -23,7 +23,7 @@ public class StackTest {
 //        System.out.println(stack);
 //        System.out.println(stack.peek());
 //
-//        System.out.println(stack);
+        System.out.println(stack.isEmpty());
 //        System.out.println(stack.size());
         for (int i = 0; i <= 2; i++) {
             System.out.println(stack.pop());
