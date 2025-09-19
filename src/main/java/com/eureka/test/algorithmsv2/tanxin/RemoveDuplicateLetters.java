@@ -30,6 +30,7 @@ public class RemoveDuplicateLetters {
             if (has[letter]) {
                 continue;
             }
+            // bacb b>a且b出现不止一次 要从 st 中移出
             while (!st.isEmpty() && st.peek() > c) {
                 // babc a<b 且 a 出现一次
                 if (z[st.peek() - 'a'] == 0) {

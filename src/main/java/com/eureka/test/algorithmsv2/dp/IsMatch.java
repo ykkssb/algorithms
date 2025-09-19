@@ -80,6 +80,7 @@ public class IsMatch {
 //                        f[i][j] = f[i][j] || f[i - 1][j]||f[i-1][j-2];
                     }
                 } else {
+                    // 先match 先*毕竟都可以
                     if (matches(s, p, i, j)) {
                         f[i][j] = f[i - 1][j - 1];
                     }
@@ -90,6 +91,7 @@ public class IsMatch {
     }
 
     public boolean matches(String s, String p, int i, int j) {
+        // i==0 tell me why
         if (i == 0) {
             return false;
         }
@@ -100,8 +102,8 @@ public class IsMatch {
     }
 
     public static void main(String[] args) {
-        String s = "aab";
-        String p = "aabb*";
+        String s = "a";
+        String p = "a*";
         IsMatch im = new IsMatch();
         System.out.println(im.isMatchTwo(s, p));
 //        System.out.println("==:" +p.substring(2));

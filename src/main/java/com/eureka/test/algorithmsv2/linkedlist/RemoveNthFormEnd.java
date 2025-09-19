@@ -10,6 +10,13 @@ import com.eureka.test.container.ListNode;
  * @Date: 2021-01-20 23:22
  */
 public class RemoveNthFormEnd {
+
+    /**
+     * todo 250918
+     * @param head
+     * @param n
+     * @return
+     */
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null) {
             return head;

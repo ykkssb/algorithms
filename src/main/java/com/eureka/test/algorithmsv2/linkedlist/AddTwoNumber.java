@@ -1,10 +1,9 @@
-package com.eureka.test.algorithms.normal;
+package com.eureka.test.algorithmsv2.linkedlist;
 
 import com.eureka.test.container.ListNode;
 
 /**
- * @ClassName : AddTwoNumber
- * https://leetcode-cn.com/problems/add-two-numbers/solution/liang-shu-xiang-jia-by-leetcode/
+ * @ClassName : AddTwoNumber https://leetcode-cn.com/problems/add-two-numbers/solution/liang-shu-xiang-jia-by-leetcode/
  * @Description : 两数相加
  * @Author : Eric
  * @Date: 2020-03-03 10:33
@@ -48,19 +47,59 @@ public class AddTwoNumber {
         return dummyHead.next;
     }
 
+
+    public ListNode addTwoNumbersTwo(ListNode l1, ListNode l2) {
+
+        ListNode l = new ListNode(-1);
+        ListNode ans = l;
+        int a = 0, b = 0;
+        while (l1 != null || l2 != null) {
+            if (l1 != null) {
+                a += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                a += l2.val;
+                l2 = l2.next;
+            }
+            a += b;
+            b = a > 9 ? 1 : 0;
+            a = a % 10;
+            l.next = new ListNode(a);
+            l = l.next;
+            a = 0;
+        }
+        if (b != 0) {
+            l.next = new ListNode(1);
+        }
+        return ans.next;
+    }
+
+    ListNode reve(ListNode t) {
+        ListNode pre = t, cur = null;
+        while (pre != null) {
+            ListNode tmp = pre.next;
+            pre.next = cur;
+            cur = pre;
+            pre = tmp;
+        }
+        return cur;
+    }
+
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(1);
-        l1 = ne(l1, new ListNode(9));
-//        ne(l1.next, new ListNode(9));
+        ListNode l1 = new ListNode(2);
+        l1 = ne(l1, new ListNode(4));
+        ne(l1.next, new ListNode(3));
 //        ne(l1.next.next, new ListNode(1));
 
-        ListNode l2 = new ListNode(0);
-//        ne(l2, new ListNode(1));
-//        ne(l2.next, new ListNode(2));
+        ListNode l2 = new ListNode(5);
+        ne(l2, new ListNode(6));
+        ne(l2.next, new ListNode(4));
 //        ne(l2.next.next, new ListNode(9));
 
-        ListNode test = addTwoNumber(l1, l2);
-        System.out.println(test);
+        AddTwoNumber at = new AddTwoNumber();
+        at.addTwoNumbersTwo(l1, l2);
+        System.out.println("123");
 
     }
 
