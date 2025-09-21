@@ -18,7 +18,10 @@ import java.util.List;
  */
 public class PreorderTraversal {
     /**
-     * todo v3
+     * todo v4 250921
+     * 前序遍历 根 左 右
+     * 中序遍历 左 根 右
+     * 后序遍历 左 右 跟
      *
      * @param root
      * @return

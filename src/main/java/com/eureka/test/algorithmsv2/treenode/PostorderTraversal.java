@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class PostorderTraversal {
     /**
-     * todo v3 -> v4
+     * todo v3 -> v4 ->v5(250921)
      *
      * @param root
      * @return
@@ -34,6 +34,7 @@ public class PostorderTraversal {
             root = de.poll();
             if (root.right == null || root.right == pre) {
                 res.add(root.val);
+                // todo pt
                 pre = root;
                 root = null;
 
