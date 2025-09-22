@@ -13,6 +13,12 @@ import java.util.Set;
  * @Date: 2021-01-20 23:47
  */
 public class RemoveDuplicateNodes {
+
+    /**
+     * v2(250922)
+     * @param head
+     * @return
+     */
     public ListNode removeDuplicateNodes(ListNode head) {
         if (head == null) {
             return head;

@@ -10,6 +10,13 @@ import com.eureka.test.container.ListNode;
  */
 public class DetectCycle {
 
+
+    /**
+     * v1 我用hash完成了 快慢指针思想也想到了 但是没想到和 head 并行一定相遇
+     *
+     * @param head
+     * @return
+     */
     public ListNode detectCycle(ListNode head) {
         if(head==null){
             return null;
