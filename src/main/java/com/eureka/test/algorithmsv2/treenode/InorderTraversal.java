@@ -9,6 +9,9 @@ import java.util.*;
  * <p>二叉树的中序遍历</p>
  * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/submissions/
  *
+ *      * 前序遍历 根 左 右
+ *      * 中序遍历 左 根 右
+ *      * 后序遍历 左 右 跟
  * @Author : Eric
  * @Date: 2020-07-01 20:03
  */
@@ -38,7 +41,7 @@ public class InorderTraversal {
 
     /**
      * 迭代算法
-     * todo v3 -> v2 -> v1(250921)
+     * todo v3 -> v2 -> v1(250921) -v0(2509523)
      *
      * @param root
      * @return
@@ -55,8 +58,6 @@ public class InorderTraversal {
             ans.add(cur.val);
             if (cur.right != null) {
                 root = cur.right;
-            } else {
-                root = null;
             }
         }
         return ans;

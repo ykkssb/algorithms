@@ -11,7 +11,8 @@ import com.eureka.test.container.ListNode;
  */
 public class SwapPairs {
     /**
-     * todo v3递归法
+     * todo v3递归法(20250919)
+     * ->v4(250919 swapPairs(next)  没想到 next.next)
      *
      * @param head
      * @return
