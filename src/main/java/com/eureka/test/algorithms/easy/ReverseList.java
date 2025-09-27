@@ -32,6 +32,10 @@ public class ReverseList {
         n.next.next = new ListNode(2);
 //        n.next.next.next = new ListNode(8);
 //        n.next.next.next.next = new ListNode(6);
-        System.out.println(reverseList(n));
+
+        ListNode listNode = reverseList(n);
+        System.out.println(listNode);
+        System.out.println(n);
+        System.out.println("1");
     }
 }

@@ -12,34 +12,34 @@ public class QuickSort {
     /**
      * todo v2
      *
-     * @param arr
      * @param low
      * @param high
      */
-    private static void quickSort(int[] arr, int low, int high) {
+    private void quickSort(int[] a, int low, int high) {
         if (low > high) {
             return;
         }
         int l = low, r = high;
-        int tmp = arr[l];
+        int tmp = a[l];
         while (l < r) {
-            while (l < r && arr[r] >= tmp) {
+            while (l < r && a[r] >= tmp) {
                 r--;
             }
-            arr[l] = arr[r];
-            while (l < r && arr[l] <= tmp) {
+            a[l] = a[r];
+            while (l < r && a[l] <= tmp) {
                 l++;
             }
-            arr[r] = arr[l];
+            a[r] = a[l];
         }
-        arr[l] = tmp;
-        quickSort(arr, low, l - 1);
-        quickSort(arr, l+1, high);
+        a[l] = tmp;
+        quickSort(a, low, l - 1);
+        quickSort(a, l + 1, high);
     }
 
     public static void main(String[] args) {
         int[] arr = {49, 38, 97, 0, -1, 22};
-        quickSort(arr, 0, arr.length - 1);
+        QuickSort qs = new QuickSort();
+        qs.quickSort(arr, 0, arr.length - 1);
         System.out.println("排序后:");
         for (int i : arr) {
             System.out.println(i);

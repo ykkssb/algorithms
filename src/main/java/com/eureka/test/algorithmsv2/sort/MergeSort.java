@@ -40,16 +40,17 @@ public class MergeSort {
             return;
         }
         int mid = left + (right - left) / 2;
+
         mergeSort(arr, left, mid);
         mergeSort(arr, mid + 1, right);
         merge(arr, left, right, mid);
     }
 
-    public void merge(int[] arr, int l, int r, int mid) {
+    void merge(int[] arr, int l, int r, int mid) {
         int[] tmp = new int[r - l + 1];
+        int index = 0;
         int i = l;
         int j = mid + 1;
-        int index = 0;
         while (i <= mid && j <= r) {
             if (arr[i] <= arr[j]) {
                 tmp[index++] = arr[i++];
@@ -63,8 +64,8 @@ public class MergeSort {
         while (j <= r) {
             tmp[index++] = arr[j++];
         }
-        for (index = 0; index < tmp.length; index++) {
-            arr[l + index] = tmp[index];
+        for (int a = 0; a < tmp.length; a++) {
+            arr[l + a] = tmp[a];
         }
     }
 
