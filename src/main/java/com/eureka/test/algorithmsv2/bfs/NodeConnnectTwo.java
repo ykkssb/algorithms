@@ -10,6 +10,7 @@ import com.eureka.test.factory.NodeTrans;
  * @Date: 2021-07-12 17:09
  */
 public class NodeConnnectTwo {
+
     public Node first = null, now = null;
 
     public Node connect(Node root) {
@@ -43,12 +44,41 @@ public class NodeConnnectTwo {
         return;
     }
 
+
+    /**
+     * todo v2(250928)
+     *
+     * 维护下层链表 循环用下层链表
+     */
+    public Node connectTwo(Node root) {
+        Node cur = root;
+        Node dummy =new Node();
+
+        while (cur != null) {
+            dummy.next = null;
+            Node n =dummy;
+            while (cur != null) {
+                if (cur.left != null) {
+                    n.next = cur.left;
+                    n = n.next;
+                }
+                if (cur.right != null) {
+                    n.next = cur.right;
+                    n = n.next;
+                }
+                cur = cur.next;
+            }
+            cur = dummy.next;
+        }
+        return root;
+    }
+
+
     public static void main(String[] args) {
         int[] s =
-                {1, 2, 3, 4, 5, 6, 7};
+            {1, 2, 3, 4, 5, 1000, 7};
         Node no = NodeTrans.transNode(s);
         NodeConnnectTwo n = new NodeConnnectTwo();
 
-        System.out.println(n.connect(no));
     }
 }

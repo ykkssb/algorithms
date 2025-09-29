@@ -33,8 +33,9 @@ public class CombinationSum2 {
         } else {
             for (int i = start; i < n.length; i++) {
 
-                // cur 代码层级
-                // 1 1 2 5 过滤掉第二个125
+                //  1 2 2 2 2 5  过滤掉第二个122 122
+                // todo v2(250929) i > start
+                // i:3>2 c, 2>1 c, 3>1 c
                 if (i > start && n[i] == n[i - 1]) {
                     continue;
 
@@ -54,7 +55,7 @@ public class CombinationSum2 {
      */
     public static void main(String[] args) {
         CombinationSum2 c = new CombinationSum2();
-        int[] n = {1, 1,1, 2,5,6,7};
-        System.out.println((c.combinationSum2(n, 8)).toString());
+        int[] n = {1, 2,2,2,5};
+        System.out.println((c.combinationSum2(n, 5)).toString());
     }
 }

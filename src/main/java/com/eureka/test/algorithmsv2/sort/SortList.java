@@ -1,4 +1,4 @@
-package com.eureka.test.algorithmsv2.linkedlist.medium;
+package com.eureka.test.algorithmsv2.sort;
 
 import com.eureka.test.container.ListNode;
 
@@ -14,18 +14,12 @@ public class SortList {
     /**
      * 1、递归法 插入排序的时间复杂度是 O(n^2)，其中 n 是链表的长度。这道题考虑时间复杂度更低的排序算法。 题目的进阶问题要求达到 O(nlogn) 的时间复杂度和 O(1) 的空间复杂度， 时间复杂度是O(nlogn)
      * 的排序算法包括归并排序、堆排序和快速排序（快速排序的最差时间复杂度是 O(n^2)其中最适合链表的排序算法是归并排序。 所以不推荐插入排序 4-3-2-1
-     *
-     * @param head
-     * @return
-     */
-
-
-    /**
-     * todo 归并排序(250925)
+     * <p>
+     * todo 归并排序(250925) v2(250928)
      */
     public ListNode sortList(ListNode head) {
         // 如果链表为空或者只有一个节点，无需排序  head==null兼容空链表
-        if (head.next == null || head==null) {
+        if (head.next == null || head == null) {
             return head;
         }
         // 找到中间节点 head2，并断开 head2 与其前一个节点的连接
@@ -51,7 +45,7 @@ public class SortList {
             slow = slow.next;
             fast = fast.next.next;
         }
-        // 断开 slow 的前一个节点和 slow 的连接
+        // todo 重点 断开连接 返回slow
         pre.next = null;
         return slow;
     }

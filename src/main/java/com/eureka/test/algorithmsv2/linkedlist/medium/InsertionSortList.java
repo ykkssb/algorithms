@@ -42,14 +42,45 @@ public class InsertionSortList {
 
     }
 
+    /**
+     * 插入排序
+     * <p>
+     * todo V3（250928）
+     */
+    public ListNode insertionSortListTwo(ListNode head) {
+        ListNode dummy = new ListNode(-1, head);
+        ListNode cur = dummy.next;
+        ListNode next = cur.next;
+        while (next != null) {
+
+            if (cur.val <= next.val) {
+                // cur 代表最大值
+                cur = cur.next;
+            } else {
+                ListNode pre = dummy;
+                while (pre.next.val <= next.val) {
+                    pre = pre.next;
+                }
+                cur.next = next.next;
+                // todo 重点这里(4,2,1,) next=1 cur =4;
+                //  next.next = cur就漏了2
+                next.next = pre.next;;
+                pre.next = next;
+
+            }
+            next = cur.next;
+        }
+        return dummy.next;
+    }
+
     public static void main(String[] args) {
         ListNode l = new ListNode();
-        l.val = -1;
-        l.next = new ListNode(5);
-        l.next.next = new ListNode(3);
-        l.next.next.next = new ListNode(4);
-        l.next.next.next.next = new ListNode(0);
+        l.val = 4;
+        l.next = new ListNode(2);
+        l.next.next = new ListNode(1);
+        l.next.next.next = new ListNode(3);
+//        l.next.next.next.next = new ListNode(0);
         InsertionSortList ii = new InsertionSortList();
-        System.out.println(ii.insertionSortList(l));
+        System.out.println(ii.insertionSortListTwo(l));
     }
 }
