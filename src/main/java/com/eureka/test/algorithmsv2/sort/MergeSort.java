@@ -3,6 +3,7 @@ package com.eureka.test.algorithmsv2.sort;
 import java.util.Arrays;
 
 /**
+ * 归并排序 22比较
  * @author : yujie.wang
  * @date: 2025-09-25 17:10
  */
@@ -36,37 +37,36 @@ public class MergeSort {
      * 4-6 5 0-6 3->merge 0-6 3
      */
     public void mergeSort(int[] arr, int left, int right) {
-        if (left >= right) {
+        if(left>= right)   {
             return;
         }
-        int mid = left + (right - left) / 2;
-
+        int mid = left+(right-left)/2;
         mergeSort(arr, left, mid);
-        mergeSort(arr, mid + 1, right);
+        mergeSort(arr,mid+1,right);
         merge(arr, left, right, mid);
     }
 
-    void merge(int[] arr, int l, int r, int mid) {
-        int[] tmp = new int[r - l + 1];
-        int index = 0;
-        int i = l;
-        int j = mid + 1;
-        while (i <= mid && j <= r) {
-            if (arr[i] <= arr[j]) {
-                tmp[index++] = arr[i++];
-            } else {
-                tmp[index++] = arr[j++];
+    void merge(int[] arr, int left,int right, int mid){
+        int[] a = new int[right-left+1];
+        int l = left, r =mid+1;
+        int idx = 0;
+        while(l<=mid && r<=right){
+            if(arr[l]<arr[r]){
+                a[idx++] = arr[l++];
+            }else{
+                a[idx++]  = arr[r++];
             }
         }
-        while (i <= mid) {
-            tmp[index++] = arr[i++];
+        while(l<=mid){
+            a[idx++] = arr[l++];
         }
-        while (j <= r) {
-            tmp[index++] = arr[j++];
+        while(r<=right){
+            a[idx++] = arr[r++];
         }
-        for (int a = 0; a < tmp.length; a++) {
-            arr[l + a] = tmp[a];
+        for(int i=0;i<idx;i++){
+            arr[i+left] = a[i];
         }
+
     }
 
 

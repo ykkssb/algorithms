@@ -12,15 +12,18 @@ import java.util.Random;
  */
 public class ThreadLocalTest {
     static ThreadLocal<String> local = new ThreadLocal<String>();
+    static ThreadLocal<Integer> localTwo = new ThreadLocal<Integer>();
 
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 local.set("a_" + RandomUtils.nextInt());
-
+                localTwo.set(RandomUtils.nextInt());
                 try {
                     Thread.sleep(1000);
-                    System.out.println(Thread.currentThread().getName() + "==="+ local.get());
+                    System.out.println(
+                        Thread.currentThread().getName() + "==="+ local.get()
+                        +" localTwo:" +localTwo.get());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

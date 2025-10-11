@@ -4,7 +4,9 @@ import com.eureka.test.container.ListNode;
 
 /**
  * <p>148. 排序链表</p>
- * https://leetcode-cn.com/problems/sort-list/ https://leetcode-cn.com/problems/sort-list/solution/pai-xu-lian-biao-di-gui-die-dai-xiang-jie-by-cherr/
+ * https://leetcode-cn.com/problems/sort-list/
+ *
+ * https://leetcode-cn.com/problems/sort-list/solution/pai-xu-lian-biao-di-gui-die-dai-xiang-jie-by-cherr/
  *
  * @Author : Eric
  * @Date: 2021-01-25 10:23

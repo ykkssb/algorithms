@@ -40,7 +40,7 @@ public class IsPalindrome {
 
     /**
      * 快慢指针
-     * 找中间点同时反转 todo v3
+     * 找中间点同时反转 todo v3 -> v0(251010)
      *
      * @param head
      * @return

@@ -1,6 +1,10 @@
 package com.eureka.test.algorithmsv2.dp.medium;
 
 /**
+ * https://leetcode.cn/problems/house-robber/
+ * <p>
+ * 198. 打家劫舍
+ *
  * @author : yujie.wang
  * @date: 2025-09-30 17:16
  */
